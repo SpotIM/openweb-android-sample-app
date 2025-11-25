@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+        app:defaultValue="Server"
+        app:entries="@array/article_information_entries"
+        app:entryValues="@array/article_information_values"
+        app:iconSpaceReserved="false"
+        app:key="article_information_strategy"
+        app:summary="Choose where article info comes from"
+        app:title="Article Information Strategy" />
+
+    <!-- Shown only when Local strategy is selected -->
+    <openweb.sample.ui.screens.settings.preference.InlineEditTextPreference
+        app:defaultValue=""
+        app:iconSpaceReserved="false"
+        app:key="article_associated_url"
+        app:summary="Enter the associated URL for local article info"
+        app:title="Article Associated URL" />
+
+    <openweb.sample.ui.screens.settings.preference.InlineEditTextPreference
+        app:defaultValue=""
+        app:iconSpaceReserved="false"
+        app:isPreferenceVisible="@bool/is_internal_build"
+        app:key="article_section"
+        app:summary="Override article section value"
+        app:title="Article Section" />
+
+    <SwitchPreferenceCompat
+        app:defaultValue="false"
+        app:iconSpaceReserved="false"
+        app:key="hide_article_header"
+        app:summary="Hide the article header in conversation view"
+        app:title="Hide Article Header" />
+
+    <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+        app:defaultValue="SERVER"
+        app:entries="@array/read_only_mode_entries"
+        app:entryValues="@array/read_only_mode_values"
+        app:iconSpaceReserved="false"
+        app:key="read_only_mode"
+        app:summary="Enabling it will prevent users from posting comments"
+        app:title="Read Only Mode" />
+
+    <SwitchPreferenceCompat
+        app:defaultValue="false"
+        app:iconSpaceReserved="false"
+        app:isPreferenceVisible="@bool/is_internal_build"
+        app:key="enable_social_reviews"
+        app:summary="Allow users to add social review ratings"
+        app:title="Enable Social Reviews" />
+
+</PreferenceScreen>

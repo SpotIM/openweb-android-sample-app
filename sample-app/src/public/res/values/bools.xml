@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Public variant: hide internal-only preferences -->
+    <bool name="is_internal_build">false</bool>
+</resources>

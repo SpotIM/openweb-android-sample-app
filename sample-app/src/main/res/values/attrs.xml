@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ChipGroupPreference attributes -->
+    <declare-styleable name="ChipGroupPreference">
+        <attr name="entries" format="reference" />
+        <attr name="entryValues" format="reference" />
+        <attr name="contentDescriptionPrefix" format="string" />
+    </declare-styleable>
+
+    <!-- CustomColorCheckBox attributes -->
+    <declare-styleable name="CustomColorCheckBox">
+        <attr name="checkBoxText" format="string" />
+        <attr name="checkBoxInnerColor" format="color" />
+        <attr name="checkBoxTextColor" format="color" />
+    </declare-styleable>
+</resources>

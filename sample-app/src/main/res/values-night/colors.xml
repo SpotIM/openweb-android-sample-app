@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="defaultTextColor">@color/white</color>
+    <color name="preset_category_text">#B0B0B0</color>
+    <color name="preset_divider">#404040</color>
+    <color name="preset_item_background">#1E1E1E</color>
+    <color name="preset_title_text">@color/white</color>
+    <color name="preset_explanation_text">#B0B0B0</color>
+    <color name="preset_header_text">@color/white</color>
+    <color name="preset_background">#121212</color>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fragment container view IDs for AndroidView integration -->
+    <item name="fragment_container_view_id" type="id"/>
+    <item name="bottom_sheet_fragment_container_view_id" type="id"/>
+</resources>

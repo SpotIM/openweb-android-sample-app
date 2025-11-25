@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/btnBackgroundBlue</color>
+    <color name="colorOnSurface">#FF9800</color>
+    <color name="colorPrimaryDark">@color/btnBackgroundBlue</color>
+    <color name="colorAccent">@color/btnBackgroundBlue</color>
+    <color name="colorB">#00BCD4</color>
+    <color name="transparentBlack">#80000000</color>
+    <color name="descriptionColor">#CCffffff</color>
+    <color name="foxNewsBrandColor">#003366</color>
+    <color name="darkColor">@color/spotim_core_l6</color>
+    <color name="ic_launcher_background">#000000</color>
+    <color name="btnBackgroundBlue">#0097DD</color>
+    <color name="btnBackgroundGrey">#757575</color>
+    <color name="btnBackgroundBlack">#808080</color>
+    <color name="red">#D81313</color>
+    <color name="green">#00A651</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="defaultTextColor">@color/black</color>
+
+    <!-- Preset UI colors - Light mode -->
+    <color name="preset_category_text">#757575</color>
+    <color name="preset_divider">#E0E0E0</color>
+    <color name="preset_item_background">#F5F5F5</color>
+    <color name="preset_title_text">#000000</color>
+    <color name="preset_explanation_text">#666666</color>
+    <color name="preset_header_text">#000000</color>
+    <color name="preset_background">#FFFFFF</color>
+
+</resources>

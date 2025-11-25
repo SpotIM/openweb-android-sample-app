@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- light -->
+    <font
+        app:font="@font/times_modern_regular"
+        app:fontStyle="normal"
+        app:fontWeight="300" />
+
+    <!-- regular -->
+    <font
+        app:font="@font/times_modern_regular"
+        app:fontStyle="normal"
+        app:fontWeight="400" />
+
+    <!-- italic -->
+    <font
+        app:font="@font/times_modern_regular"
+        app:fontStyle="italic"
+        app:fontWeight="400" />
+
+    <!-- medium -->
+    <font
+        app:font="@font/times_modern_regular"
+        app:fontStyle="normal"
+        app:fontWeight="500" />
+
+    <!-- semi-bold -->
+    <font
+        app:font="@font/times_modern_regular"
+        app:fontStyle="normal"
+        app:fontWeight="600" />
+
+    <!-- bold -->
+    <font
+        app:font="@font/times_modern_regular"
+        app:fontStyle="normal"
+        app:fontWeight="700" />
+</font-family>

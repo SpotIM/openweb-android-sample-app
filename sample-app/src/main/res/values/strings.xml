@@ -1,0 +1,119 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name" translatable="false">OpenWeb - Sample App</string>
+    <string name="article" translatable="false">Article</string>
+    <string name="authentication" translatable="false">Authentication</string>
+    <string name="authentication_disabled" translatable="false">Authentication options disabled in the public preset</string>
+    <string name="settings" translatable="false">Settings</string>
+    <string name="articles" translatable="false">Articles</string>
+    <string name="auth_as_fox_user" translatable="false">Authorized as FOX user</string>
+    <string name="guest_fox_user" translatable="false">Guest FOX user</string>
+    <string name="auth_as_spot_im_user" translatable="false">Authorized as SpotIm user</string>
+    <string name="go_to_articles_as_guest" translatable="false">Go to articles as guest</string>
+    <string name="version_name_text_prefix" translatable="false">Version name: %s (%s)</string>
+    <string name="branch_text_prefix" translatable="false">Branch: %s</string>
+    <string name="date_text_prefix" translatable="false">Date: %s</string>
+    <string name="environment_text_prefix" translatable="false">Environment: %s</string>
+    <string name="build_variant_text_prefix" translatable="false">Build Variant: %s (%s)</string>
+    <string name="env_perfix" translatable="false">OpenWeb (%s)</string>
+    <string name="top" translatable="false">Top</string>
+    <string name="title_comment_creation" translatable="false">Comment Creation:</string>
+    <string name="article_information_strategy" translatable="false">Article Information Strategy</string>
+    <string name="article_associated_url" translatable="false">Article associated URL</string>
+    <string name="style_mode" translatable="false">Style mode</string>
+    <string name="comment_type_regular" translatable="false">Regular</string>
+    <string name="comment_type_light" translatable="false">Light</string>
+    <string name="comment_type_floating" translatable="false">Floating</string>
+    <string name="accesssory_view_type_none" translatable="false">None</string>
+    <string name="accesssory_view_type_toolbar" translatable="false">Toolbar</string>
+    <string name="btn_report_reasons" translatable="false">Report Reasons</string>
+    <string name="btn_comment_creation" translatable="false">Comment Creation</string>
+    <string name="btn_comment_thread" translatable="false">Comment Thread</string>
+    <string name="btn_comment_thread_intent" translatable="false">Comment Thread (Intent)</string>
+    <string name="btn_start_comment_creation" translatable="false">Start Comment Creation</string>
+    <string name="btn_start_report_reasons" translatable="false">Start Report Reasons</string>
+    <string name="btn_conversation_below_video" translatable="false">Conversation Below Video</string>
+    <string name="btn_viewpager" translatable="false">ViewPager</string>
+    <string name="btn_pre_conversation_in_recycler_view" translatable="false">PreConversation in recycler view</string>
+    <string name="conversation_counter_tooltip" translatable="false">You can enter multiple post ids by using a comma.\nExample: \"postid1,postid2,postid3\"</string>
+    <string name="title_community_guidelines_style" translatable="false">Community Guidelines Style</string>
+    <string name="settings_title_questions_style" translatable="false">Questions Style</string>
+    <string name="settings_title_spacing" translatable="false">Conversation Spacing</string>
+    <string name="title_full_conversation" translatable="false">Full Conversation</string>
+    <string name="title_full_conversation_fragment" translatable="false">Full Conversation (Fragment)</string>
+    <string name="title_full_conversation_intent" translatable="false">Full Conversation (Intent)</string>
+    <string name="title_pre_conversation" translatable="false">Pre Conversation</string>
+    <string name="examples" translatable="false">Examples</string>
+    <string name="compose" translatable="false">Compose</string>
+
+    <!-- Environment settings -->
+    <string name="title_network" translatable="false">Network</string>
+    <string name="environment" translatable="false">Environment</string>
+    <string name="network_type_prod" translatable="false">Production</string>
+    <string name="network_type_staging" translatable="false">Staging</string>
+
+    <!-- compose -->
+    <string name="compose_conversation_intent">Conversation intent</string>
+    <string name="compose_conversation_flow">Conversation Flow</string>
+    <string name="compose_conversation_view">Conversation View</string>
+
+    <!-- logger -->
+    <string name="logs_count_format" translatable="false">Logs: %d</string>
+
+    <!-- Override Fragment -->
+    <string name="endpoint_configuration" translatable="false">📡 Endpoint Configuration</string>
+    <string name="select_endpoint" translatable="false">Select Endpoint:</string>
+    <string name="fetch_endpoint_schema" translatable="false">Fetch Endpoint Schema</string>
+    <string name="endpoint_status_default" translatable="false">Select an endpoint and fetch its schema</string>
+    <string name="json_response_structure" translatable="false">🌳 JSON Response Structure</string>
+    <string name="search_override_keys" translatable="false">🔍 Search &amp; Override Keys</string>
+    <string name="search_hint" translatable="false">Search for a key to override</string>
+    <string name="search_helper_text" translatable="false">Start typing to find a key from the response above</string>
+    <string name="override_values" translatable="false">⚙️ Override Values</string>
+    <string name="clear_all" translatable="false">Clear All</string>
+    <string name="empty_overrides_text" translatable="false">No overrides added yet\nSearch for keys above to get started</string>
+    <string name="config_cleared" translatable="false">Config cleared successfully</string>
+    <string name="reset_settings_content_description" translatable="false">Reset settings</string>
+    <string name="reset_settings_title" translatable="false">Reset All Settings</string>
+    <string name="reset_settings_message" translatable="false">This will reset all settings to their default values. Are you sure?</string>
+    <string name="settings_reset_success" translatable="false">Settings reset to defaults</string>
+
+    <!-- Preset selection -->
+    <string name="select_preset_title" translatable="false">Select Preset</string>
+    <string name="category_demo_testing" translatable="false">Demo &amp; Testing</string>
+    <string name="category_production_publishers" translatable="false">Production Publishers</string>
+    <string name="category_mobile_auth" translatable="false">Mobile Authentication</string>
+
+    <!-- Vertical card descriptions -->
+    <string name="vertical_news_description" translatable="false">Breaking: Major Policy Changes Expected Next Week</string>
+    <string name="vertical_finance_description" translatable="false">Apple Stock Surges Amid Strong Q4 Earnings Report</string>
+    <string name="vertical_recipes_description" translatable="false">The Ultimate Homemade Pasta Recipe Everyone Loves</string>
+    <string name="vertical_sport_description" translatable="false">Champions League Final: Preview and Predictions</string>
+    <string name="vertical_video_description" translatable="false">Behind the Scenes: Making of a Viral Hit</string>
+    <string name="vertical_siderail_description" translatable="false">The Future of Remote Work: A Deep Dive</string>
+
+    <!-- Home screen strings -->
+    <string name="openweb_logo_content_description" translatable="false">OpenWeb Logo</string>
+    <string name="openweb_brand_content_description" translatable="false">OpenWeb Brand</string>
+    <string name="home_screen_description" translatable="false">Engagement solutions for every vertical</string>
+    <string name="choose_vertical_section_title" translatable="false">CHOOSE A VERTICAL</string>
+    <string name="openweb_title" translatable="false">OpenWeb</string>
+    <string name="home_screen_toolbar_title" translatable="false">OpenWeb</string>
+
+    <!-- About screen strings -->
+    <string name="about_screen_title" translatable="false">About</string>
+    <string name="about_button_label" translatable="false">About</string>
+    <string name="about_button_content_description" translatable="false">Open about screen</string>
+    <string name="about_company_description" translatable="false">The OpenWeb Sample App is a live showcase of our SDK capabilities and recommended implementation patterns.\n\nIt features production-ready examples of OpenWeb\'s engagement experiences - including pre-conversation units, full conversations, side-rail placements, and video integrations across multiple content verticals such as news, finance, sports, recipes, and more.\n\nDesigned as both a demonstration environment and a best-practice reference, the app highlights the flexibility, performance, and adaptability of the OpenWeb platform, helping partners better understand how our solutions can be integrated into their own products.</string>
+    <string name="about_links_section_title" translatable="false">LINKS &amp; CONTACT</string>
+    <string name="about_sdk_docs_title" translatable="false">SDK Documentation</string>
+    <string name="about_sdk_docs_url" translatable="false">https://developers.openweb.com/docs/android-social-sdk-getting-started</string>
+    <string name="about_github_title" translatable="false">GitHub Repository</string>
+    <string name="about_github_url" translatable="false">https://github.com/SpotIM/openweb-android-sample-app</string>
+    <string name="about_contact_title" translatable="false">Contact Us</string>
+    <string name="about_contact_description" translatable="false">contact@openweb.com</string>
+    <string name="about_privacy_policy_title" translatable="false">Privacy Policy</string>
+    <string name="about_privacy_policy_description" translatable="false">https://www.openweb.com/privacy</string>
+    <string name="about_terms_title" translatable="false">Terms of Service</string>
+    <string name="about_terms_description" translatable="false">https://www.openweb.com/terms</string>
+
+</resources>

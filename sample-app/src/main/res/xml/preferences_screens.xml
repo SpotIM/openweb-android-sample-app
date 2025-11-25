@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="Pre Conversation">
+
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:defaultValue="Regular"
+            app:entries="@array/pre_conversation_style_entries"
+            app:entryValues="@array/pre_conversation_style_values"
+            app:iconSpaceReserved="false"
+            app:key="pre_conversation_style"
+            app:summary="Choose pre-conversation display style"
+            app:title="Pre Conversation Style" />
+
+        <!-- Shown only when Custom style is selected -->
+        <SeekBarPreference
+            android:defaultValue="3"
+            android:max="8"
+            android:min="1"
+            app:iconSpaceReserved="false"
+            app:key="pre_conversation_num_comments"
+            app:showSeekBarValue="true"
+            app:summary="Number of comments to show in pre-conversation"
+            app:title="Number of Comments" />
+
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:contentDescriptionPrefix="PreConversation"
+            app:defaultValue="Regular"
+            app:entries="@array/pre_conversation_guidelines_entries"
+            app:entryValues="@array/pre_conversation_guidelines_values"
+            app:iconSpaceReserved="false"
+            app:key="pre_conversation_guidelines_style"
+            app:summary="Choose guidelines display style"
+            app:title="Community Guidelines Style" />
+
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:contentDescriptionPrefix="PreConversation"
+            app:defaultValue="Regular"
+            app:entries="@array/pre_conversation_questions_entries"
+            app:entryValues="@array/pre_conversation_questions_values"
+            app:iconSpaceReserved="false"
+            app:key="pre_conversation_questions_style"
+            app:summary="Choose community questions display style"
+            app:title="Community Questions Style" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Conversation">
+
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:defaultValue="Regular"
+            app:entries="@array/conversation_style_entries"
+            app:entryValues="@array/conversation_style_values"
+            app:iconSpaceReserved="false"
+            app:key="conversation_style"
+            app:summary="Choose conversation display style"
+            app:title="Conversation Style" />
+
+        <!-- Shown only when Custom style is selected -->
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:contentDescriptionPrefix="Conversation"
+            app:defaultValue="Regular"
+            app:entries="@array/conversation_guidelines_entries"
+            app:entryValues="@array/conversation_guidelines_values"
+            app:iconSpaceReserved="false"
+            app:key="conversation_guidelines_style"
+            app:summary="Choose guidelines display style"
+            app:title="Community Guidelines Style" />
+
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:contentDescriptionPrefix="Conversation"
+            app:defaultValue="Regular"
+            app:entries="@array/conversation_questions_entries"
+            app:entryValues="@array/conversation_questions_values"
+            app:iconSpaceReserved="false"
+            app:key="conversation_questions_style"
+            app:summary="Choose community questions display style"
+            app:title="Community Questions Style" />
+
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:defaultValue="Regular"
+            app:entries="@array/conversation_spacing_entries"
+            app:entryValues="@array/conversation_spacing_values"
+            app:iconSpaceReserved="false"
+            app:key="conversation_spacing_style"
+            app:summary="Choose spacing between conversation elements"
+            app:title="Conversation Spacing" />
+
+        <!-- Shown only when Custom spacing is selected -->
+        <openweb.sample.ui.screens.settings.preference.InlineEditTextPreference
+            android:inputType="number"
+            app:defaultValue="16"
+            app:iconSpaceReserved="false"
+            app:key="conversation_spacing_between_comments"
+            app:summary="Spacing in pixels (5-40)"
+            app:title="Between Comments Spacing" />
+
+        <openweb.sample.ui.screens.settings.preference.InlineEditTextPreference
+            android:inputType="number"
+            app:defaultValue="12"
+            app:iconSpaceReserved="false"
+            app:key="conversation_spacing_guidelines"
+            app:summary="Spacing in pixels (5-40)"
+            app:title="Guidelines Spacing" />
+
+        <openweb.sample.ui.screens.settings.preference.InlineEditTextPreference
+            android:inputType="number"
+            app:defaultValue="12"
+            app:iconSpaceReserved="false"
+            app:key="conversation_spacing_questions"
+            app:summary="Spacing in pixels (5-40)"
+            app:title="Questions Spacing" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:isPreferenceVisible="@bool/is_internal_build"
+        app:title="Comment Creation">
+
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:defaultValue="Regular"
+            app:entries="@array/comment_creation_style_entries"
+            app:entryValues="@array/comment_creation_style_values"
+            app:iconSpaceReserved="false"
+            app:key="comment_creation_style"
+            app:summary="Choose comment creation UI style"
+            app:title="Comment Creation Style" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:isPreferenceVisible="@bool/is_internal_build"
+        app:title="Comment Thread">
+
+        <openweb.sample.ui.screens.settings.preference.InlineEditTextPreference
+            app:defaultValue=""
+            app:iconSpaceReserved="false"
+            app:key="comment_thread_id"
+            app:summary="ID of the comment to open in thread view"
+            app:title="Comment Thread ID" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="General">
+
+        <SwitchPreferenceCompat
+            app:defaultValue="true"
+            app:iconSpaceReserved="false"
+            app:key="enable_pull_to_refresh"
+            app:summary="Allow pull-to-refresh gesture in conversation view"
+            app:title="Enable Pull To Refresh" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

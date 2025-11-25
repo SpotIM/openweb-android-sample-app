@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Initial Sort Option -->
+    <string-array name="initial_sort_option_entries">
+        <item>Server</item>
+        <item>Best</item>
+        <item>Newest</item>
+        <item>Oldest</item>
+    </string-array>
+    <string-array name="initial_sort_option_values">
+        <item>SERVER</item>
+        <item>BEST</item>
+        <item>NEWEST</item>
+        <item>OLDEST</item>
+    </string-array>
+
+    <!-- Comment Action Color Style -->
+    <string-array name="comment_action_color_entries">
+        <item>Default</item>
+        <item>Brand Color</item>
+    </string-array>
+    <string-array name="comment_action_color_values">
+        <item>DEFAULT</item>
+        <item>BRAND_COLOR</item>
+    </string-array>
+
+    <!-- Comment Action Font Style -->
+    <string-array name="comment_action_font_entries">
+        <item>Default</item>
+        <item>Semi Bold</item>
+    </string-array>
+    <string-array name="comment_action_font_values">
+        <item>DEFAULT</item>
+        <item>SEMI_BOLD</item>
+    </string-array>
+
+    <!-- Font Family Strategy -->
+    <string-array name="font_family_entries">
+        <item>Default</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="font_family_values">
+        <item>Default</item>
+        <item>Custom</item>
+    </string-array>
+
+    <!-- Theme Mode -->
+    <string-array name="theme_mode_entries">
+        <item>System Default</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+    <string-array name="theme_mode_values">
+        <item>DEFAULT</item>
+        <item>LIGHT</item>
+        <item>DARK</item>
+    </string-array>
+
+    <!-- Language Strategy -->
+    <string-array name="language_strategy_entries">
+        <item>Device</item>
+        <item>Server</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="language_strategy_values">
+        <item>Device</item>
+        <item>ServerConfig</item>
+        <item>Custom</item>
+    </string-array>
+
+    <!-- Locale Strategy -->
+    <string-array name="locale_strategy_entries">
+        <item>Device</item>
+        <item>Server</item>
+    </string-array>
+    <string-array name="locale_strategy_values">
+        <item>Device</item>
+        <item>ServerConfig</item>
+    </string-array>
+
+    <!-- Article Information Strategy -->
+    <string-array name="article_information_entries">
+        <item>Server</item>
+        <item>Local</item>
+    </string-array>
+    <string-array name="article_information_values">
+        <item>Server</item>
+        <item>Local</item>
+    </string-array>
+
+    <!-- Read Only Mode -->
+    <string-array name="read_only_mode_entries">
+        <item>Server</item>
+        <item>Enable</item>
+        <item>Disable</item>
+    </string-array>
+    <string-array name="read_only_mode_values">
+        <item>SERVER</item>
+        <item>ENABLE</item>
+        <item>DISABLE</item>
+    </string-array>
+
+    <!-- Pre Conversation Style -->
+    <string-array name="pre_conversation_style_entries">
+        <item>Regular</item>
+        <item>Compact</item>
+        <item>Summary</item>
+        <item>Button Only</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="pre_conversation_style_values">
+        <item>Regular</item>
+        <item>Compact</item>
+        <item>Summary</item>
+        <item>ButtonOnly</item>
+        <item>Custom</item>
+    </string-array>
+
+    <!-- Pre Conversation Guidelines Style -->
+    <string-array name="pre_conversation_guidelines_entries">
+        <item>None</item>
+        <item>Regular</item>
+        <item>Compact</item>
+    </string-array>
+    <string-array name="pre_conversation_guidelines_values">
+        <item>None</item>
+        <item>Regular</item>
+        <item>Compact</item>
+    </string-array>
+
+    <!-- Pre Conversation Questions Style -->
+    <string-array name="pre_conversation_questions_entries">
+        <item>None</item>
+        <item>Regular</item>
+        <item>Compact</item>
+    </string-array>
+    <string-array name="pre_conversation_questions_values">
+        <item>None</item>
+        <item>Regular</item>
+        <item>Compact</item>
+    </string-array>
+
+    <!-- Conversation Style -->
+    <string-array name="conversation_style_entries">
+        <item>Regular</item>
+        <item>Compact</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="conversation_style_values">
+        <item>Regular</item>
+        <item>Compact</item>
+        <item>Custom</item>
+    </string-array>
+
+    <!-- Conversation Guidelines Style -->
+    <string-array name="conversation_guidelines_entries">
+        <item>None</item>
+        <item>Regular</item>
+        <item>Compact</item>
+    </string-array>
+    <string-array name="conversation_guidelines_values">
+        <item>None</item>
+        <item>Regular</item>
+        <item>Compact</item>
+    </string-array>
+
+    <!-- Conversation Questions Style -->
+    <string-array name="conversation_questions_entries">
+        <item>None</item>
+        <item>Regular</item>
+        <item>Compact</item>
+    </string-array>
+    <string-array name="conversation_questions_values">
+        <item>None</item>
+        <item>Regular</item>
+        <item>Compact</item>
+    </string-array>
+
+    <!-- Conversation Spacing Style -->
+    <string-array name="conversation_spacing_entries">
+        <item>Regular</item>
+        <item>Compact</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="conversation_spacing_values">
+        <item>Regular</item>
+        <item>Compact</item>
+        <item>Custom</item>
+    </string-array>
+
+    <!-- Comment Creation Style -->
+    <string-array name="comment_creation_style_entries">
+        <item>Regular</item>
+        <item>Light</item>
+        <item>Floating</item>
+    </string-array>
+    <string-array name="comment_creation_style_values">
+        <item>Regular</item>
+        <item>Light</item>
+        <item>Floating</item>
+    </string-array>
+
+    <!-- Environment -->
+    <string-array name="environment_entries">
+        <item>Production</item>
+        <item>Prod 1d</item>
+        <item>Staging</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="environment_values">
+        <item>Production</item>
+        <item>Production1d</item>
+        <item>Staging</item>
+        <item>Custom</item>
+    </string-array>
+
+    <!-- Mock SSO Environment -->
+    <string-array name="mock_sso_environment_entries">
+        <item>Production</item>
+        <item>Staging</item>
+    </string-array>
+    <string-array name="mock_sso_environment_values">
+        <item>Production</item>
+        <item>Staging</item>
+    </string-array>
+
+    <!-- Supported Languages -->
+    <string-array name="supported_language_entries">
+        <item>English</item>
+        <item>Arabic</item>
+        <item>Dutch</item>
+        <item>French</item>
+        <item>German</item>
+        <item>Hebrew</item>
+        <item>Hungarian</item>
+        <item>Indonesian</item>
+        <item>Italian</item>
+        <item>Japanese</item>
+        <item>Korean</item>
+        <item>Portuguese</item>
+        <item>Spanish</item>
+        <item>Thai</item>
+        <item>Turkish</item>
+        <item>Vietnamese</item>
+    </string-array>
+    <string-array name="supported_language_values">
+        <item>English</item>
+        <item>Arabic</item>
+        <item>Dutch</item>
+        <item>French</item>
+        <item>German</item>
+        <item>Hebrew</item>
+        <item>Hungarian</item>
+        <item>Indonesian</item>
+        <item>Italian</item>
+        <item>Japanese</item>
+        <item>Korean</item>
+        <item>Portuguese</item>
+        <item>Spanish</item>
+        <item>Thai</item>
+        <item>Turkish</item>
+        <item>Vietnamese</item>
+    </string-array>
+
+</resources>

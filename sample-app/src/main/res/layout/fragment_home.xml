@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintBottom_toTopOf="@id/llMetadata"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/selectPresetWrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <Button
+                    android:id="@+id/selectPresetBtn"
+                    style="@style/SampleAppButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="@color/btnBackgroundGrey"
+                    android:text="Select Preset"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/llSpotId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:minHeight="30dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvSpotid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Spot Id:"
+                        android:textColor="@color/defaultTextColor"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/etSpotId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:background="@drawable/edit_text_background"
+                        android:gravity="center"
+                        android:minHeight="30dp"
+                        android:padding="8dp"
+                        android:text="sp_eCIIROSD" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llPostid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:minHeight="30dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvPostid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Post Id:"
+                        android:textColor="@color/defaultTextColor"
+                        android:textSize="18sp" />
+
+                    <EditText
+                        android:id="@+id/etPostid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:background="@drawable/edit_text_background"
+                        android:gravity="center"
+                        android:minHeight="30dp"
+                        android:padding="8dp"
+                        android:text="sdk1" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llMenuButtons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnUIComponents"
+                    style="@style/SampleAppButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="UI Components" />
+
+                <Button
+                    android:id="@+id/btnUIFlows"
+                    style="@style/SampleAppButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="UI Flows" />
+
+                <Button
+                    android:id="@+id/btnUIViews"
+                    style="@style/SampleAppButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="UI Views" />
+
+                <Button
+                    android:id="@+id/btnMiscellaneous"
+                    style="@style/SampleAppButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Miscellaneous" />
+
+                <Button
+                    android:id="@+id/btnVerticalDemo"
+                    style="@style/SampleAppButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="@color/green"
+                    android:text="Vertical Demo (Compose)" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/llMetadata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMetadataTitle"
+            style="@style/spotim_core_t4_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Metadata:"
+            android:textColor="@color/defaultTextColor"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDate"
+            style="@style/spotim_core_t6_sb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/defaultTextColor"
+            tools:text="Date: 01/01/2025" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvVersionName"
+            style="@style/spotim_core_t6_sb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/defaultTextColor"
+            tools:text="Version: 1.0.0 (1)" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBranchName"
+            style="@style/spotim_core_t6_sb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/defaultTextColor"
+            tools:text="release/app/2.0.0.0" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBuildVariant"
+            style="@style/spotim_core_t6_sb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            android:textColor="@color/defaultTextColor"
+            tools:text="Flavor: PublicSDK" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvEnvironmentName"
+            style="@style/spotim_core_t6_sb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:visibility="visible"
+            tools:text="Environment: Staging"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="Environment">
+
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:key="environment"
+            app:title="Environment"
+            app:summary="Select API environment"
+            app:entries="@array/environment_entries"
+            app:entryValues="@array/environment_values"
+            app:defaultValue="Production"
+            app:iconSpaceReserved="false" />
+
+        <!-- Shown only when Custom environment is selected -->
+        <openweb.sample.ui.screens.settings.preference.InlineEditTextPreference
+            app:key="environment_base_url"
+            app:title="Environment Base URL"
+            app:summary="e.g., https://api.example.com"
+            app:defaultValue=""
+            app:iconSpaceReserved="false" />
+
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:key="mock_sso_environment"
+            app:title="Mock SSO Environment"
+            app:summary="Select mock SSO environment for testing"
+            app:entries="@array/mock_sso_environment_entries"
+            app:entryValues="@array/mock_sso_environment_values"
+            app:defaultValue="Production"
+            app:iconSpaceReserved="false" />
+
+        <openweb.sample.ui.screens.settings.preference.ButtonPreference
+            app:key="apply_base_url"
+            app:title="Apply &amp; Restart"
+            app:summary="Apply environment changes and restart app" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Developer Tools">
+
+        <SwitchPreferenceCompat
+            app:key="logger_view"
+            app:title="Logger View"
+            app:summary="Show floating logger for debugging"
+            app:defaultValue="false"
+            app:iconSpaceReserved="false" />
+
+        <SwitchPreferenceCompat
+            app:key="enable_login_delegation"
+            app:title="Enable Login Delegation"
+            app:summary="Use custom login delegate for authentication"
+            app:defaultValue="false"
+            app:iconSpaceReserved="false" />
+
+        <openweb.sample.ui.screens.settings.preference.InlineEditTextPreference
+            app:key="profile_url_path"
+            app:title="Profile URL Path"
+            app:summary="Enter custom URL path"
+            app:defaultValue=""
+            app:iconSpaceReserved="false" />
+
+        <Preference
+            app:key="endpoint_overrides"
+            app:title="Endpoint Overrides"
+            app:summary="Override SDK API endpoints"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Actions">
+
+        <Preference
+            app:key="clear_config"
+            app:title="Clear Config"
+            app:summary="Clear the config from cache"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

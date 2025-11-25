@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default for main source set - visible in all variants unless overridden -->
+    <bool name="is_internal_build">true</bool>
+</resources>

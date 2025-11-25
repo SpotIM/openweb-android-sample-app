@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+        app:key="language_strategy"
+        app:title="Language Strategy"
+        app:summary="Select how the SDK determines language"
+        app:entries="@array/language_strategy_entries"
+        app:entryValues="@array/language_strategy_values"
+        app:defaultValue="Device"
+        app:iconSpaceReserved="false" />
+
+    <!-- This will be shown/hidden dynamically based on language_strategy selection -->
+    <ListPreference
+        app:key="custom_language"
+        app:title="Language"
+        app:entries="@array/supported_language_entries"
+        app:entryValues="@array/supported_language_values"
+        app:defaultValue="English"
+        app:useSimpleSummaryProvider="true"
+        app:iconSpaceReserved="false" />
+
+    <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+        app:key="locale_strategy"
+        app:title="Locale Strategy"
+        app:summary="Select how the SDK determines locale"
+        app:entries="@array/locale_strategy_entries"
+        app:entryValues="@array/locale_strategy_values"
+        app:defaultValue="Device"
+        app:iconSpaceReserved="false" />
+
+    <SwitchPreferenceCompat
+        app:key="enable_landscape"
+        app:title="Enable Landscape"
+        app:summary="Allow landscape orientation in SDK screens"
+        app:defaultValue="false"
+        app:iconSpaceReserved="false" />
+
+</PreferenceScreen>

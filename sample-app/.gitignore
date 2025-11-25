@@ -1,0 +1,5 @@
+/build
+.idea
+/debug
+google-services.json
+keystore/

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="Sorting">
+
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:key="initial_sort_option"
+            app:title="Initial Sort Option"
+            app:summary="Choose default comment sorting order"
+            app:entries="@array/initial_sort_option_entries"
+            app:entryValues="@array/initial_sort_option_values"
+            app:defaultValue="SERVER"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Comment Actions">
+
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:key="comment_action_color_style"
+            app:title="Comment Action Color Style"
+            app:summary="Customize color style of comment action buttons"
+            app:entries="@array/comment_action_color_entries"
+            app:entryValues="@array/comment_action_color_values"
+            app:defaultValue="DEFAULT"
+            app:iconSpaceReserved="false" />
+
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:key="comment_action_font_style"
+            app:title="Comment Action Font Style"
+            app:summary="Customize font style of comment action buttons"
+            app:entries="@array/comment_action_font_entries"
+            app:entryValues="@array/comment_action_font_values"
+            app:defaultValue="DEFAULT"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Theme">
+
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:key="font_family_strategy"
+            app:title="Font Family Strategy"
+            app:summary="Select which font family to use"
+            app:entries="@array/font_family_entries"
+            app:entryValues="@array/font_family_values"
+            app:defaultValue="Default"
+            app:iconSpaceReserved="false" />
+
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:key="theme_mode"
+            app:title="Theme Mode"
+            app:summary="Choose light, dark, or follow system theme"
+            app:entries="@array/theme_mode_entries"
+            app:entryValues="@array/theme_mode_values"
+            app:defaultValue="DEFAULT"
+            app:iconSpaceReserved="false" />
+
+        <openweb.sample.ui.screens.settings.preference.ColorPreviewPreference
+            app:key="custom_dark_color"
+            app:title="Custom Dark Color"
+            app:summary="Tap to customize the dark theme primary color" />
+
+        <Preference
+            app:key="custom_theme_colors"
+            app:title="Custom Theme Colors"
+            app:summary="Customize individual theme colors"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="UI Delegation">
+
+        <SwitchPreferenceCompat
+            app:key="enable_custom_ui_delegation"
+            app:title="Enable Custom UI Delegation"
+            app:summary="Use custom UI delegate for SDK components"
+            app:defaultValue="false"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,23 @@
+*.iml
+.gradle
+.idea
+.idea/*
+.idea/libraries
+/local.properties
+build/*
+/captures
+.externalNativeBuild
+/fastlane/.env.secret
+/.env.secret
+/fastlane/report.xml
+.bundle
+/vendor/*
+/buildSrc/build
+
+# Sentry Config File
+sentry.properties
+.kotlin/
+/gradle/convention/build/
+/build-logic/build/
+/build-logic/bin/
+/sample-app-extensions/build/

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SwitchPreferenceCompat
+        app:key="show_login_prompt"
+        app:title="Show Login Prompt"
+        app:summary="Display login prompt when authentication is required"
+        app:defaultValue="false"
+        app:iconSpaceReserved="false" />
+
+</PreferenceScreen>

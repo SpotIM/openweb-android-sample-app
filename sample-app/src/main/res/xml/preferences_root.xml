@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- androidx.preference will load sub-preferences when clicked -->
+    <!-- Each opens the corresponding preferences_*.xml file -->
+
+    <Preference
+        app:iconSpaceReserved="false"
+        app:key="customizations"
+        app:summary="Theme, colors, fonts, and UI customization"
+        app:title="Customizations" />
+
+    <Preference
+        app:iconSpaceReserved="false"
+        app:isPreferenceVisible="@bool/is_internal_build"
+        app:key="authentication"
+        app:summary="Login and user authentication settings"
+        app:title="Authentication" />
+
+    <Preference
+        app:iconSpaceReserved="false"
+        app:key="configurations"
+        app:summary="Language, locale, and general configurations"
+        app:title="Configurations" />
+
+    <Preference
+        app:iconSpaceReserved="false"
+        app:key="article_settings"
+        app:summary="Article information and display options"
+        app:title="Article Settings" />
+
+    <Preference
+        app:iconSpaceReserved="false"
+        app:key="screens_settings"
+        app:summary="PreConversation, Conversation, and screen styles"
+        app:title="Screens Settings" />
+
+    <Preference
+        app:iconSpaceReserved="false"
+        app:isPreferenceVisible="@bool/is_internal_build"
+        app:key="internal_settings"
+        app:summary="Environment, logger, and developer options"
+        app:title="Internal Settings" />
+
+</PreferenceScreen>
