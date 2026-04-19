@@ -1,5 +1,7 @@
 package openweb.sample.ui.screens.verticals.model
 
+import openweb.sample.R
+
 @Suppress("StringLiteralDuplication")
 object MockArticles {
     fun news() = ArticleData(
@@ -7,11 +9,17 @@ object MockArticles {
             spotId = "sp_LmNIcv7z",
             postId = "news_1"
         ),
-        title = "Government officials announce sweeping reforms that could reshape the economic landscape",
+        title = "Breaking: Major Policy Changes Expected Next Week",
+        imageRes = R.drawable.article_image_news,
+        source = "THE DAILY TRIBUNE",
+        readTimeMinutes = 4,
+        subheader = "Government officials announce sweeping reforms that could reshape the economic landscape",
+        authorName = "Rachel Adams",
+        authorDate = "Dec 9, 2025",
         paragraphs = listOf(
             """
-                Government officials announce sweeping reforms that could reshape the economic landscape. 
-                Experts weigh in on potential implications for businesses and consumers alike.
+                The administration unveiled a sweeping package of economic reforms on Monday, signaling a major
+                shift in fiscal policy that experts say could ripple through markets for years to come.
             """.trimIndent(),
             """
                 The administration announced today a comprehensive package of economic reforms that analysts say 
@@ -49,7 +57,13 @@ object MockArticles {
             spotId = "sp_xT4NGStS",
             postId = "finance_1"
         ),
-        title = "Apple Stock Surges Amid Strong Q4 Earnings Report.",
+        title = "Apple Stock Surges Amid Strong Q4 Earnings Report",
+        imageRes = R.drawable.article_image_finance,
+        source = "MARKET WATCH DAILY",
+        readTimeMinutes = 5,
+        subheader = "Services segment drives record revenue as Wall Street raises price targets",
+        authorName = "Marcus Webb",
+        authorDate = "Dec 9, 2025",
         paragraphs = listOf(
             """
                **AAPL** shares jumped **5.2%** in after-hours trading following quarterly results that exceeded analyst
@@ -96,6 +110,12 @@ object MockArticles {
             postId = "recipes_1"
         ),
         title = "The Ultimate Homemade Pasta Recipe Everyone Loves",
+        imageRes = R.drawable.article_image_food,
+        source = "TASTE & TABLE",
+        readTimeMinutes = 6,
+        subheader = "From silky fettuccine to perfect ravioli \u2014 master fresh pasta with this foolproof guide",
+        authorName = "Sofia Caruso",
+        authorDate = "Dec 8, 2025",
         paragraphs = listOf(
             """
                 Master the art of fresh pasta with this foolproof recipe. From silky fettuccine to perfect ravioli, 
@@ -165,6 +185,12 @@ object MockArticles {
             postId = "siderail_1"
         ),
         title = "The Future of Remote Work: A Deep Dive",
+        imageRes = R.drawable.article_image_tech,
+        source = "FUTURE OF WORK",
+        readTimeMinutes = 7,
+        subheader = "How organizations are reimagining productivity, collaboration, and work-life balance",
+        authorName = "Jordan Lee",
+        authorDate = "Dec 7, 2025",
         paragraphs = listOf(
             """
                 Remote work has fundamentally transformed how we think about productivity, collaboration, and work-life 

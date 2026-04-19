@@ -52,18 +52,18 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import openweb.sample.R
 import openweb.sample.ui.screens.verticals.model.GoalEvent
+import openweb.sample.ui.screens.verticals.model.MockTeams
 import openweb.sample.ui.screens.verticals.theme.sportsColor
 
 @Composable
 fun SportScoreboard(
     modifier: Modifier = Modifier,
-    homeTeamName: String = "Home Team",
-    homeTeamLogo: Painter? = painterResource(R.drawable.team_logo_home),
+    homeTeamName: String = MockTeams.HOME_TEAM_NAME,
+    homeTeamLogo: Painter? = painterResource(MockTeams.HOME_LOGO_RES),
     homeScore: Int = 2,
-    awayTeamName: String = "Away Team",
-    awayTeamLogo: Painter? = painterResource(R.drawable.team_logo_away),
+    awayTeamName: String = MockTeams.AWAY_TEAM_NAME,
+    awayTeamLogo: Painter? = painterResource(MockTeams.AWAY_LOGO_RES),
     awayScore: Int = 1,
     matchMinute: Int = 0,
     isLive: Boolean = true,

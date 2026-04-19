@@ -10,10 +10,11 @@ object MarkdownFormatter {
     /**
      * Converts markdown-style text with **bold** syntax to AnnotatedString with proper styling.
      */
+    private val boldPattern = Regex("""\*\*(.+?)\*\*""")
+
     fun parseMarkdown(text: String): AnnotatedString {
         return buildAnnotatedString {
             var currentIndex = 0
-            val boldPattern = Regex("""\*\*(.+?)\*\*""")
 
             boldPattern.findAll(text).forEach { matchResult ->
                 // Append text before the bold section

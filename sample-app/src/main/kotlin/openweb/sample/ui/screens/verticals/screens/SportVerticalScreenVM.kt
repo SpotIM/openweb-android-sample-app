@@ -16,6 +16,7 @@ import openweb.sample.data.local.OWScreenStyleProvider
 import openweb.sample.ui.screens.verticals.model.ConversationParams
 import openweb.sample.ui.screens.verticals.model.GoalEvent
 import openweb.sample.ui.screens.verticals.model.SportVerticalUiState
+import openweb.sample.ui.screens.verticals.model.MockTeams
 import openweb.sample.ui.screens.verticals.model.VerticalMockData
 import openweb.sample.utils.initialization.SpotImInitializer
 
@@ -74,14 +75,14 @@ class SportVerticalScreenVM(
                         goalId++
                         newState = newState.copy(
                             homeScore = state.homeScore + 1,
-                            goalEvent = GoalEvent(teamName = "Home Team", id = goalId)
+                            goalEvent = GoalEvent(teamName = MockTeams.HOME_TEAM_NAME, id = goalId)
                         )
                     }
                     if (event.awayGoal) {
                         goalId++
                         newState = newState.copy(
                             awayScore = state.awayScore + 1,
-                            goalEvent = GoalEvent(teamName = "Away Team", id = goalId)
+                            goalEvent = GoalEvent(teamName = MockTeams.AWAY_TEAM_NAME, id = goalId)
                         )
                     }
                     if (event.fullTime) {

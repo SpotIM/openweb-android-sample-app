@@ -110,7 +110,7 @@ fun ArticleVerticalScreen(
                 .padding(bottom = keyboardHeight.value)
                 .verticalScroll(scrollState)
         ) {
-            ArticleContent(article = mockData.article)
+            ArticleContent(article = mockData.article, brandColor = mockData.color)
 
             customContent?.invoke()
 

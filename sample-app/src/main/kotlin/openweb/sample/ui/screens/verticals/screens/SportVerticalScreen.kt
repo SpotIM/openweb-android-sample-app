@@ -117,8 +117,6 @@ fun SportVerticalScreen(
             // Static scoreboard — always visible below top bar, does NOT scroll
             SportScoreboard(
                 modifier = Modifier.zIndex(1f),
-                homeTeamName = "Home Team",
-                awayTeamName = "Away Team",
                 homeScore = uiState.homeScore,
                 awayScore = uiState.awayScore,
                 matchMinute = uiState.matchMinute,

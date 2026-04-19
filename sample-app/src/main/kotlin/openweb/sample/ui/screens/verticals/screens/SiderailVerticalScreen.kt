@@ -102,7 +102,7 @@ fun SiderailVerticalScreen(
                     .padding(padding)
                     .verticalScroll(scrollState)
             ) {
-                ArticleContent(article = mockData.article)
+                ArticleContent(article = mockData.article, brandColor = mockData.color)
 
                 ImplementationInfoCard(
                     info = mockData.implementationInfo,
