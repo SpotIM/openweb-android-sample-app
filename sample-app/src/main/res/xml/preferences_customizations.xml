@@ -14,28 +14,6 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="Comment Actions">
-
-        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
-            app:key="comment_action_color_style"
-            app:title="Comment Action Color Style"
-            app:summary="Customize color style of comment action buttons"
-            app:entries="@array/comment_action_color_entries"
-            app:entryValues="@array/comment_action_color_values"
-            app:defaultValue="DEFAULT"
-            app:iconSpaceReserved="false" />
-
-        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
-            app:key="comment_action_font_style"
-            app:title="Comment Action Font Style"
-            app:summary="Customize font style of comment action buttons"
-            app:entries="@array/comment_action_font_entries"
-            app:entryValues="@array/comment_action_font_values"
-            app:defaultValue="DEFAULT"
-            app:iconSpaceReserved="false" />
-
-    </PreferenceCategory>
-
     <PreferenceCategory app:title="Theme">
 
         <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
@@ -62,20 +40,31 @@
             app:summary="Tap to customize the dark theme primary color" />
 
         <Preference
-            app:key="custom_theme_colors"
-            app:title="Custom Theme Colors"
-            app:summary="Customize individual theme colors"
+            app:key="element_customizations"
+            app:title="Elements Customizations"
+            app:summary="Callbacks, fonts, and colors per element"
             app:iconSpaceReserved="false" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="UI Delegation">
+    <PreferenceCategory app:title="Comment Actions (Deprecated)">
 
-        <SwitchPreferenceCompat
-            app:key="enable_custom_ui_delegation"
-            app:title="Enable Custom UI Delegation"
-            app:summary="Use custom UI delegate for SDK components"
-            app:defaultValue="false"
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:key="comment_action_color_style"
+            app:title="Comment Action Color Style"
+            app:summary="Customize color style of comment action buttons"
+            app:entries="@array/comment_action_color_entries"
+            app:entryValues="@array/comment_action_color_values"
+            app:defaultValue="DEFAULT"
+            app:iconSpaceReserved="false" />
+
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:key="comment_action_font_style"
+            app:title="Comment Action Font Style"
+            app:summary="Customize font style of comment action buttons"
+            app:entries="@array/comment_action_font_entries"
+            app:entryValues="@array/comment_action_font_values"
+            app:defaultValue="DEFAULT"
             app:iconSpaceReserved="false" />
 
     </PreferenceCategory>

@@ -14,7 +14,9 @@ import spotIm.common.internal.model.override.EndpointOverride
 import spotIm.common.internal.model.settings.OWEnvironment
 import openweb.sample.ui.model.ConversationSettingsModel
 import openweb.sample.ui.model.PreConversationSettingsModel
-import openweb.sample.ui.screens.settings.customtheme.CustomThemeSetting
+import openweb.sample.ui.screens.settings.customelement.CustomElementSetting
+import openweb.sample.ui.screens.settings.customfont.CustomFontSetting
+import openweb.sample.ui.screens.settings.customtheme.CombinedThemeColorSetting
 import openweb.sample.ui.screens.settings.enums.ArticleInformationStrategy
 import openweb.sample.ui.screens.settings.enums.FontFamilyType
 
@@ -22,8 +24,14 @@ import openweb.sample.ui.screens.settings.enums.FontFamilyType
  * Interface for operations related to SharedPreferences.
  */
 interface SharedPreferencesOperations {
-    fun setCustomThemeColorsList(themeColorsList: List<CustomThemeSetting>?)
-    fun getCustomThemeColorsList(): ArrayList<CustomThemeSetting>?
+    fun setCustomFontElements(fontSettings: List<CustomFontSetting>?)
+    fun getCustomFontElements(): List<CustomFontSetting>?
+
+    fun setCustomElementToggles(settings: List<CustomElementSetting>?)
+    fun getCustomElementToggles(): List<CustomElementSetting>?
+
+    fun setCombinedThemeColors(combinedColors: List<CombinedThemeColorSetting>?)
+    fun getCombinedThemeColors(): ArrayList<CombinedThemeColorSetting>?
 
     fun setCommentActionsButtonsFont(commentActionsButtonsFont: CommentActionsButtonsFont)
     fun getCommentActionsButtonsFont(): CommentActionsButtonsFont?
@@ -108,9 +116,6 @@ interface SharedPreferencesOperations {
 
     fun setEnableLoginDelegation(enable: Boolean)
     fun getEnableLoginDelegation(): Boolean?
-
-    fun setEnableCustomUIDelegation(enable: Boolean)
-    fun getEnableCustomUIDelegation(): Boolean
 
     fun setEndpointOverrides(overrides: List<EndpointOverride>?)
     fun getEndpointOverrides(): List<EndpointOverride>

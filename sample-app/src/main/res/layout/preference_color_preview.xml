@@ -41,4 +41,18 @@
         android:layout_marginStart="16dp"
         android:background="@drawable/color_preview_background" />
 
+    <!-- Reset button — independently clickable, does not trigger preference click -->
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/reset_color_btn"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="4dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_close"
+        android:scaleType="fitCenter"
+        android:padding="6dp"
+        android:contentDescription="Reset color"
+        android:clickable="true"
+        android:focusable="true" />
+
 </LinearLayout>

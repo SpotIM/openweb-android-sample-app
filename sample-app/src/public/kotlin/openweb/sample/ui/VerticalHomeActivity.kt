@@ -4,17 +4,24 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.layout.ime
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.union
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.compose.rememberNavController
-import openweb.sample.ui.screens.home.VerticalNavHost
 import openweb.sample.ui.mainactivity.MainActivity
 import openweb.sample.ui.mainactivity.MainActivityConstants
 import openweb.sample.ui.screens.examples.compose.ui.theme.ComposeTheme
+import openweb.sample.ui.screens.home.VerticalNavHost
+import openweb.sample.utils.handleNotificationIntent
 
 /**
  * Main entry point activity for the public sample app, showcasing the OpenWeb SDK.
@@ -31,10 +38,19 @@ class VerticalHomeActivity : FragmentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
+        handleNotificationIntent(intent)
+
         setContent {
             ComposeTheme {
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(
+                            WindowInsets.ime
+                                .union(WindowInsets.systemBars)
+                                .asPaddingValues()
+                        )
+                        .consumeWindowInsets(WindowInsets.systemBars),
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navController = rememberNavController()
@@ -49,12 +65,15 @@ class VerticalHomeActivity : FragmentActivity() {
                             }
                             startActivity(intent)
                         },
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .safeDrawingPadding()
+                        modifier = Modifier.fillMaxSize()
                     )
                 }
             }
         }
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        handleNotificationIntent(intent)
     }
 }

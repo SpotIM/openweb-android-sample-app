@@ -8,7 +8,7 @@ rootProject.name = if (isPrivateRepo()) {
 
 include(":sample-app")
 if (isPrivateRepo()) {
-    include(":spotim-core", ":spotim-sdk", ":spotim-common")
+    include(":spotim-core", ":spotim-sdk", ":spotim-common", ":spotim-compose")
 }
 
 // Include convention plugins
@@ -35,6 +35,9 @@ dependencyResolutionManagement {
             }
             create("sdkLibs") {
                 from(files("gradle/sdk.libs.versions.toml"))
+            }
+            create("composeLibs") {
+                from(files("gradle/compose.libs.versions.toml"))
             }
         }
     }

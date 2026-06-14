@@ -5,7 +5,7 @@ import org.koin.dsl.module
 
 import openweb.sample.ui.mainactivity.MainActivityVM
 import openweb.sample.ui.screens.settings.SettingsVM
-import openweb.sample.ui.screens.settings.customtheme.CustomThemePickerVM
+import openweb.sample.ui.screens.settings.elementcustomizations.ElementCustomizationsVM
 import openweb.sample.ui.screens.verticals.screens.ArticleVerticalScreenVM
 import openweb.sample.ui.screens.verticals.screens.SiderailVerticalScreenVM
 import openweb.sample.ui.screens.verticals.screens.SportVerticalScreenVM
@@ -22,10 +22,10 @@ import openweb.sample.ui.screens.verticals.screens.VideoVerticalScreenVM
  * Note: Flavor-specific ViewModels are provided in [getFlavorModules].
  */
 val viewModelModule = module {
-    viewModel { MainActivityVM(owManager = get(), settingsRepository = get()) }
+    viewModel { MainActivityVM(owManager = get()) }
 
-    viewModel { SettingsVM(floatingLoggerManager = get(), settingsRepository = get()) }
-    viewModel { CustomThemePickerVM(settingsRepository = get()) }
+    viewModel { SettingsVM(floatingLoggerManager = get(), settingsRepository = get(), spotImInitializer = get()) }
+    viewModel { ElementCustomizationsVM(settingsRepository = get()) }
 
     viewModel { params ->
         ArticleVerticalScreenVM(

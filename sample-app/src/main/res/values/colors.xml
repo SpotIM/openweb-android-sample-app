@@ -19,6 +19,17 @@
     <color name="white">#FFFFFF</color>
 
     <color name="defaultTextColor">@color/black</color>
+    <color name="ghost_button_border">#1F000000</color>
+    <color name="badge_callback_text">#5E00D4</color>
+    <color name="badge_callback_border">#446200EE</color>
+
+    <!-- UI Components screen -->
+    <color name="ui_components_nav_mode_toggle_bg">#E6E8F0</color>
+    <color name="ui_components_radio_card_bg">#F2F3FB</color>
+    <color name="ui_components_divider">#C1C6D4</color>
+    <color name="ui_components_nav_mode_toggle_active_bg">#BFD5FF</color>
+    <color name="ui_components_nav_mode_toggle_active_text">#465C80</color>
+    <color name="ui_components_nav_mode_toggle_inactive_text">#414752</color>
 
     <!-- Preset UI colors - Light mode -->
     <color name="preset_category_text">#757575</color>
@@ -28,5 +39,21 @@
     <color name="preset_explanation_text">#666666</color>
     <color name="preset_header_text">#000000</color>
     <color name="preset_background">#FFFFFF</color>
+
+    <!-- Home screen — Material 3-aligned palette (light) -->
+    <color name="home_surface">#FDFCFF</color>
+    <color name="home_surface_container_low">#F7F9FC</color>
+    <color name="home_surface_container">#ECEEF2</color>
+    <color name="home_surface_container_high">#E5E7EC</color>
+    <color name="home_on_surface">#1A1C1E</color>
+    <color name="home_on_surface_variant">#43474E</color>
+    <color name="home_outline_variant">#C3C7CF</color>
+    <color name="home_primary">#0061A4</color>
+    <color name="home_on_primary">#FFFFFF</color>
+    <color name="home_primary_container">#D1E4FF</color>
+    <color name="home_on_primary_container">#001D36</color>
+    <color name="home_secondary_container">#D7E3F7</color>
+    <color name="home_on_secondary_container">#101C2B</color>
+    <color name="home_error">#BA1A1A</color>
 
 </resources>

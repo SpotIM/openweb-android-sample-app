@@ -2,4 +2,43 @@
 <resources>
     <dimen name="card_view_radius">24dp</dimen>
     <dimen name="auth_max_width">180dp</dimen>
+
+    <!-- Home / UI Components shared Material 3 design tokens -->
+    <dimen name="home_screen_padding_horizontal">16dp</dimen>
+    <dimen name="home_screen_padding_top">16dp</dimen>
+    <dimen name="home_screen_padding_bottom">24dp</dimen>
+
+    <dimen name="home_card_corner_radius">16dp</dimen>
+
+    <dimen name="home_menu_row_min_height">64dp</dimen>
+    <dimen name="home_menu_row_padding_horizontal">14dp</dimen>
+    <dimen name="home_menu_row_padding_vertical">12dp</dimen>
+    <dimen name="home_menu_row_spacing">8dp</dimen>
+    <dimen name="home_menu_icon_tile_size">40dp</dimen>
+    <dimen name="home_menu_icon_size">22dp</dimen>
+    <dimen name="home_menu_icon_corner_radius">12dp</dimen>
+    <dimen name="home_menu_text_margin_start">14dp</dimen>
+    <dimen name="home_menu_chevron_size">20dp</dimen>
+    <dimen name="home_menu_title_size">16sp</dimen>
+    <dimen name="home_menu_subtitle_size">13sp</dimen>
+
+    <dimen name="home_section_label_margin_top">20dp</dimen>
+    <dimen name="home_section_label_margin_bottom">10dp</dimen>
+    <dimen name="home_section_label_size">16sp</dimen>
+
+    <dimen name="home_pill_height">52dp</dimen>
+    <dimen name="home_pill_corner_radius">50dp</dimen>
+    <dimen name="home_pill_padding">6dp</dimen>
+    <dimen name="home_pill_label_size">14sp</dimen>
+
+    <dimen name="home_select_preset_height">48dp</dimen>
+    <dimen name="home_select_preset_corner_radius">24dp</dimen>
+    <dimen name="home_select_preset_text_size">14sp</dimen>
+    <dimen name="home_select_preset_icon_padding">8dp</dimen>
+    <dimen name="home_select_preset_icon_size">20dp</dimen>
+
+    <dimen name="home_metadata_title_size">13sp</dimen>
+    <dimen name="home_metadata_text_size">12sp</dimen>
+    <dimen name="home_metadata_padding">16dp</dimen>
+    <dimen name="home_metadata_margin_top">20dp</dimen>
 </resources>

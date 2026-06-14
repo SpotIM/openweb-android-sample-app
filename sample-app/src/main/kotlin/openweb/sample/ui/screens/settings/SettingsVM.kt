@@ -13,6 +13,7 @@ import openweb.sample.data.repository.SettingsRepository
 import openweb.sample.ui.features.floatinglogger.FloatingLoggerManager
 import openweb.sample.ui.screens.settings.customtheme.CustomDarkColorState
 import openweb.sample.ui.screens.settings.enums.ArticleInformationStrategy
+import openweb.sample.utils.initialization.SpotImInitializer
 import spotIm.common.api.model.localization.OWLanguageStrategy
 import spotIm.common.api.model.settings.conversation.style.OWConversationSpacing
 import spotIm.common.internal.model.settings.OWEnvironment
@@ -76,7 +77,8 @@ interface SettingsVMContract {
 @Suppress("StringLiteralDuplication")
 class SettingsVM(
     private val floatingLoggerManager: FloatingLoggerManager,
-    private val settingsRepository: SettingsRepository
+    private val settingsRepository: SettingsRepository,
+    private val spotImInitializer: SpotImInitializer
 ) : ViewModel(), SettingsVMContract, SettingsVMInputs, SettingsVMOutputs {
 
     override val inputs: SettingsVMInputs = this
@@ -145,6 +147,8 @@ class SettingsVM(
                     )
 
                     val needsRestart = settingsRepository.clearAllSettings(keysToPreserve)
+                    spotImInitializer.resetElementCustomizations()
+                    onCustomDarkColorReset()
 
                     if (needsRestart) {
                         _events.tryEmit(SettingsEvent.ResetSettings)

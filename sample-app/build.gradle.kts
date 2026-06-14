@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-parcelize")
     alias(libs.plugins.kotlinx.serialization)
+    alias(libs.plugins.kotlin.compose.compiler)
     id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
 }
@@ -83,10 +84,6 @@ android {
         buildConfig = true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = sampleAppLibs.versions.compose.compiler.get()
-    }
-
     flavorDimensions += listOf("ow_sdk", "platform")
     productFlavors {
         create("public") {
@@ -111,17 +108,22 @@ android {
 
 configurations.all {
     resolutionStrategy {
-        force("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
-        force("org.jetbrains.kotlinx:kotlinx-serialization-core:1.6.3")
+        force("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
+        force("org.jetbrains.kotlinx:kotlinx-serialization-core:1.7.1")
     }
 }
 
 dependencies {
     if (isPrivateRepo()) {
         implementation(project(":spotim-sdk"))
+        implementation(project(":spotim-compose"))
     } else {
         implementation(sampleAppLibs.openweb.sdk)
+        implementation(sampleAppLibs.openweb.compose)
     }
+
+    // WorkManager (used by Push Notifications debug screen to observe enqueued work)
+    implementation(libs.androidx.work.runtime.ktx)
 
     // Firebase
     implementation(platform(sampleAppLibs.firebase.bom))
@@ -173,8 +175,8 @@ dependencies {
     androidTestImplementation(sampleAppLibs.androidx.test.core)
     androidTestImplementation(sampleAppLibs.androidx.test.rules)
 
-    // ColorPickerView for General Settings
-    implementation(sampleAppLibs.colorpickerview)
+    // ColorPicker (with built-in hex input)
+    implementation(sampleAppLibs.jaredrummler.colorpicker)
 
     // Kotlin Reflection
     implementation(sampleAppLibs.kotlin.reflect)

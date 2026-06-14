@@ -7,7 +7,9 @@ import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import openweb.sample.ui.model.ConversationSettingsModel
 import openweb.sample.ui.model.PreConversationSettingsModel
-import openweb.sample.ui.screens.settings.customtheme.CustomThemeSetting
+import openweb.sample.ui.screens.settings.customelement.CustomElementSetting
+import openweb.sample.ui.screens.settings.customfont.CustomFontSetting
+import openweb.sample.ui.screens.settings.customtheme.CombinedThemeColorSetting
 import openweb.sample.ui.screens.settings.enums.ArticleInformationStrategy
 import openweb.sample.ui.screens.settings.enums.FontFamilyType
 import openweb.sample.utils.fromJson
@@ -70,13 +72,31 @@ class SharedPreferencesManager(context: Context) : SharedPreferencesOperations {
         }
     }
 
-    override fun setCustomThemeColorsList(themeColorsList: List<CustomThemeSetting>?) = setValue(
-        SharedPrefsItem.CustomThemeColors.key,
-        themeColorsList
+    override fun setCustomFontElements(fontSettings: List<CustomFontSetting>?) = setValue(
+        SharedPrefsItem.CustomFontElements.key,
+        fontSettings
     )
 
-    override fun getCustomThemeColorsList() = getValue<ArrayList<CustomThemeSetting>>(
-        SharedPrefsItem.CustomThemeColors.key
+    override fun getCustomFontElements() = getValue<List<CustomFontSetting>>(
+        SharedPrefsItem.CustomFontElements.key
+    )
+
+    override fun setCustomElementToggles(settings: List<CustomElementSetting>?) = setValue(
+        SharedPrefsItem.CustomElementToggles.key,
+        settings
+    )
+
+    override fun getCustomElementToggles() = getValue<List<CustomElementSetting>>(
+        SharedPrefsItem.CustomElementToggles.key
+    )
+
+    override fun setCombinedThemeColors(combinedColors: List<CombinedThemeColorSetting>?) = setValue(
+        SharedPrefsItem.CombinedThemeColors.key,
+        combinedColors
+    )
+
+    override fun getCombinedThemeColors() = getValue<ArrayList<CombinedThemeColorSetting>>(
+        SharedPrefsItem.CombinedThemeColors.key
     )
 
     override fun setCommentActionsButtonsFont(commentActionsButtonsFont: CommentActionsButtonsFont) = setValue(
@@ -290,14 +310,6 @@ class SharedPreferencesManager(context: Context) : SharedPreferencesOperations {
         enable
     )
 
-    override fun getEnableCustomUIDelegation(): Boolean =
-        getValue<Boolean>(SharedPrefsItem.EnableCustomUIDelegation.key)
-            ?: SharedPrefsItem.EnableCustomUIDelegation.defaultValue
-
-    override fun setEnableCustomUIDelegation(enable: Boolean) = setValue<Boolean>(
-        SharedPrefsItem.EnableCustomUIDelegation.key,
-        enable
-    )
 
     override fun getEndpointOverrides(): List<EndpointOverride> {
         val jsonString = getValue<String>(SharedPrefsItem.EndpointOverrides.key)
@@ -350,7 +362,9 @@ class SharedPreferencesManager(context: Context) : SharedPreferencesOperations {
             is SharedPrefsItem.CommentThreadId -> getCommentThreadId() as T
             is SharedPrefsItem.ConversationStyle -> getConversationStyle() as T
             is SharedPrefsItem.CustomDarkColor -> getCustomDarkColor() as T
-            is SharedPrefsItem.CustomThemeColors -> getCustomThemeColorsList() as T
+            is SharedPrefsItem.CustomFontElements -> getCustomFontElements() as T
+            is SharedPrefsItem.CustomElementToggles -> getCustomElementToggles() as T
+            is SharedPrefsItem.CombinedThemeColors -> getCombinedThemeColors() as T
             is SharedPrefsItem.EnableLandScape -> getEnableLandScape() as T
             is SharedPrefsItem.ShowLogger -> getShowLogger() as T
             is SharedPrefsItem.Environment -> getEnvironmentType() as T
@@ -367,7 +381,6 @@ class SharedPreferencesManager(context: Context) : SharedPreferencesOperations {
             is SharedPrefsItem.SupportedLanguage -> getSupportedLanguage() as T
             is SharedPrefsItem.ShowLoginPrompt -> getShowLoginPrompt() as T
             is SharedPrefsItem.EnableLoginDelegation -> getEnableLoginDelegation() as T
-            is SharedPrefsItem.EnableCustomUIDelegation -> getEnableCustomUIDelegation() as T
             is SharedPrefsItem.EndpointOverrides -> getEndpointOverrides() as T
             is SharedPrefsItem.InitialSortOption -> getInitialSortOption() as T
             is SharedPrefsItem.EnablePullToRefresh -> getEnablePullToRefresh() as T
@@ -398,7 +411,9 @@ class SharedPreferencesManager(context: Context) : SharedPreferencesOperations {
             is SharedPrefsItem.CommentThreadId -> setCommentThreadId(value as? String)
             is SharedPrefsItem.ConversationStyle -> setConversationStyle(value as ConversationSettingsModel)
             is SharedPrefsItem.CustomDarkColor -> setCustomDarkColor(value as? Int)
-            is SharedPrefsItem.CustomThemeColors -> setCustomThemeColorsList(value as? List<CustomThemeSetting>)
+            is SharedPrefsItem.CustomFontElements -> setCustomFontElements(value as? List<CustomFontSetting>)
+            is SharedPrefsItem.CustomElementToggles -> setCustomElementToggles(value as? List<CustomElementSetting>)
+            is SharedPrefsItem.CombinedThemeColors -> setCombinedThemeColors(value as? List<CombinedThemeColorSetting>)
             is SharedPrefsItem.EnableLandScape -> setEnableLandScape(value as Boolean)
             is SharedPrefsItem.ShowLogger -> setShowLogger(value as Boolean)
             is SharedPrefsItem.Environment -> setEnvironmentType(value as OWEnvironment)
@@ -415,7 +430,6 @@ class SharedPreferencesManager(context: Context) : SharedPreferencesOperations {
             is SharedPrefsItem.SupportedLanguage -> setSupportedLanguage(value as OWSupportedLanguage)
             is SharedPrefsItem.ShowLoginPrompt -> setShowLoginPrompt(value as Boolean)
             is SharedPrefsItem.EnableLoginDelegation -> setEnableLoginDelegation(value as Boolean)
-            is SharedPrefsItem.EnableCustomUIDelegation -> setEnableCustomUIDelegation(value as Boolean)
             is SharedPrefsItem.EndpointOverrides -> setEndpointOverrides(value as? List<EndpointOverride>)
             is SharedPrefsItem.InitialSortOption -> setInitialSortOption(value as? OWSortOption)
             is SharedPrefsItem.EnablePullToRefresh -> setEnablePullToRefresh(value as Boolean)

@@ -39,7 +39,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.koin.androidx.compose.koinViewModel
 import org.koin.core.parameter.parametersOf
 import openweb.sample.ui.screens.verticals.components.article.ArticleContent
-import openweb.sample.ui.screens.verticals.components.article.BottomSheetFragmentContainer
+import openweb.sample.ui.screens.verticals.components.article.BottomSheetContainer
 import openweb.sample.ui.screens.verticals.components.article.ImplementationInfoCard
 import openweb.sample.ui.screens.verticals.components.article.VerticalTopAppBar
 import openweb.sample.ui.screens.verticals.model.VerticalMockData
@@ -151,7 +151,7 @@ fun SiderailVerticalScreen(
                 shadowElevation = 16.dp
             ) {
                 key(settingsVersion) {
-                    BottomSheetFragmentContainer(
+                    BottomSheetContainer(
                         params = conversationParams,
                         fragmentManager = fragmentManager
                     )

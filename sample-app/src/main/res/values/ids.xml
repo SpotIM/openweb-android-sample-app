@@ -3,4 +3,22 @@
     <!-- Fragment container view IDs for AndroidView integration -->
     <item name="fragment_container_view_id" type="id"/>
     <item name="bottom_sheet_fragment_container_view_id" type="id"/>
+
+    <!--
+        Stable resource ids for runtime-populated radio buttons in the UI Components
+        configurator. Used by Appium / UI Automator selectors.
+    -->
+    <item name="radio_route_none" type="id"/>
+    <item name="radio_route_comment_creation_add" type="id"/>
+    <item name="radio_route_comment_creation_edit" type="id"/>
+    <item name="radio_route_comment_creation_reply" type="id"/>
+    <item name="radio_route_comment_thread" type="id"/>
+
+    <item name="radio_scenario_scrollable" type="id"/>
+    <item name="radio_scenario_fullscreen" type="id"/>
+    <item name="radio_scenario_lazy_column" type="id"/>
+    <item name="radio_scenario_bottom_sheet" type="id"/>
+    <item name="radio_scenario_pager" type="id"/>
+    <item name="radio_scenario_nested_fragment" type="id"/>
+    <item name="radio_scenario_view_pager2_fragments" type="id"/>
 </resources>

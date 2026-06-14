@@ -260,8 +260,6 @@ class SettingsPreferenceDataStore(
             PreferenceKey.EnablePullToRefresh.key -> settingsRepository[SharedPrefsItem.EnablePullToRefresh] = value
             PreferenceKey.EnableLoginDelegation.key -> settingsRepository[SharedPrefsItem.EnableLoginDelegation] = value
             PreferenceKey.LoggerView.key -> settingsRepository[SharedPrefsItem.ShowLogger] = value
-            PreferenceKey.EnableCustomUIDelegation.key ->
-                settingsRepository[SharedPrefsItem.EnableCustomUIDelegation] = value
         }
     }
 
@@ -379,7 +377,6 @@ class SettingsPreferenceDataStore(
             PreferenceKey.EnablePullToRefresh.key -> settingsRepository[SharedPrefsItem.EnablePullToRefresh]
             PreferenceKey.EnableLoginDelegation.key -> settingsRepository[SharedPrefsItem.EnableLoginDelegation]
             PreferenceKey.LoggerView.key -> settingsRepository[SharedPrefsItem.ShowLogger]
-            PreferenceKey.EnableCustomUIDelegation.key -> settingsRepository[SharedPrefsItem.EnableCustomUIDelegation]
             else -> defValue
         }
 }

@@ -66,9 +66,9 @@ interface FragmentNavigator {
     fun navigateToConversationCounter() = Unit
 
     /**
-     * Navigate to the custom theme picker screen.
+     * Navigate to the unified element customizations screen.
      */
-    fun navigateToCustomThemePicker() = Unit
+    fun navigateToElementCustomizations() = Unit
 
     /**
      * Navigate to the endpoint override settings screen.
@@ -79,6 +79,11 @@ interface FragmentNavigator {
      * Navigate to the theme override test screen.
      */
     fun navigateToThemeOverrideTest() = Unit
+
+    /**
+     * Navigate to the push notifications debug screen (internal QA).
+     */
+    fun navigateToPushNotificationsDebug() = Unit
 
     /**
      * Navigate to the flow examples screen.

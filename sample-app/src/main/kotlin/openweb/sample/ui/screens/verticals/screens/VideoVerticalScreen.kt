@@ -34,7 +34,7 @@ import androidx.media3.common.util.UnstableApi
 import org.koin.androidx.compose.koinViewModel
 import org.koin.compose.koinInject
 import org.koin.core.parameter.parametersOf
-import openweb.sample.ui.screens.verticals.components.article.BottomSheetFragmentContainer
+import openweb.sample.ui.screens.verticals.components.article.BottomSheetContainer
 import openweb.sample.ui.screens.verticals.components.video.ImplementationInfoOverlay
 import openweb.sample.ui.screens.verticals.components.video.VideoItem
 import openweb.sample.ui.screens.verticals.model.VerticalMockData
@@ -138,7 +138,7 @@ fun VideoVerticalScreen(
             if (uiState.isBottomSheetVisible) {
                 key(fragmentContainerKey) {
                     Box(modifier = Modifier.fillMaxHeight(0.9f)) {
-                        BottomSheetFragmentContainer(
+                        BottomSheetContainer(
                             params = conversationParams,
                             fragmentManager = fragmentManager
                         )

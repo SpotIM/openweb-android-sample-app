@@ -9,7 +9,7 @@
 
     <!-- regular -->
     <font
-        app:font="@font/tourney_condensed_black"
+        app:font="@font/tourney_condensed_regular"
         app:fontStyle="normal"
         app:fontWeight="400" />
 

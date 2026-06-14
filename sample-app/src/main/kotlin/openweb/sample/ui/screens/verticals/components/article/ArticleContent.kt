@@ -145,11 +145,26 @@ fun ArticleContent(
             }
 
             Spacer(modifier = Modifier.height(16.dp))
-            article.paragraphs.forEach { paragraph ->
-                Text(
-                    text = MarkdownFormatter.parseMarkdown(paragraph),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f)
+        }
+
+        article.paragraphs.forEachIndexed { index, paragraph ->
+            Text(
+                text = MarkdownFormatter.parseMarkdown(paragraph),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f),
+                modifier = Modifier.padding(horizontal = 16.dp)
+            )
+            Spacer(modifier = Modifier.height(12.dp))
+
+            val inlineImage = article.inlineImage
+            if (inlineImage != null && index == inlineImage.afterParagraphIndex) {
+                Image(
+                    painter = painterResource(inlineImage.imageRes),
+                    contentDescription = article.title,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .aspectRatio(4f / 3f)
                 )
                 Spacer(modifier = Modifier.height(12.dp))
             }

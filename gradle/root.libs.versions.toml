@@ -1,17 +1,20 @@
 [versions]
 androidx-navigation-args = "2.8.2"
+androidx-work-runtime = "2.9.1"
 detekt = "1.23.7"
 firebase-crashlytics-gradle = "3.0.5"
-kotlin-version = "1.9.24"
+kotlin-version = "2.0.0"
 maven = "2.1"
 gms = "4.4.2"
 squareup-javapoet = "1.13.0"
+kover = "0.9.7"
 ktlint = "11.5.1"
-kotlinx-serialization = "1.9.24"
+kotlinx-serialization = "2.0.0"
 
 [libraries]
 android-maven-gradle-plugin = { module = "com.github.dcendents:android-maven-gradle-plugin", version.ref = "maven" }
 androidx-navigation-safe-args-gradle-plugin = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "androidx-navigation-args" }
+androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "androidx-work-runtime" }
 detekt-gradle-plugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 javapoet = { module = "com.squareup:javapoet", version.ref = "squareup-javapoet" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin-version" }
@@ -21,5 +24,7 @@ google-services = { group = "com.google.gms", name = "google-services", version.
 
 [plugins]
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinx-serialization" }
+kotlin-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin-version" }

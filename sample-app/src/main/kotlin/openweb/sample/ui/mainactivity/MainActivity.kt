@@ -1,5 +1,6 @@
 package openweb.sample.ui.mainactivity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -7,13 +8,14 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
-import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.core.parameter.parametersOf
 import openweb.sample.R
 import openweb.sample.databinding.ActivityMainContainerBinding
 import openweb.sample.ui.navigation.FragmentNavigator
+import openweb.sample.utils.handleNotificationIntent
 import openweb.sample.utils.supportEdgeToEdge
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 /**
  * Container activity for fragment-based navigation in the sample app.
@@ -42,6 +44,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportEdgeToEdge(binding.root)
 
+        setSupportActionBar(binding.topAppBar)
+        binding.topAppBar.setNavigationOnClickListener {
+            if (!navigator.popBackStack()) finish()
+        }
+        supportFragmentManager.addOnBackStackChangedListener { syncBackArrow() }
+        syncBackArrow()
+
         observeNavigationEvents()
 
         if (savedInstanceState == null) {
@@ -50,6 +59,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         setupBackPressHandling()
+        handleNotificationIntent(intent)
+    }
+
+    private fun syncBackArrow() {
+        supportActionBar?.setDisplayHomeAsUpEnabled(supportFragmentManager.backStackEntryCount > 0)
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        handleNotificationIntent(intent)
     }
 
     private fun observeNavigationEvents() {

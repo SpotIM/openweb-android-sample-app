@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="ui_components_nav_mode_toggle_animation_duration">200</integer>
+</resources>

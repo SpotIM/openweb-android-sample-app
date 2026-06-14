@@ -9,9 +9,6 @@ import spotIm.common.internal.model.settings.OWEnvironment
  * should be handled by [SettingsFragment] or the host activity.
  */
 sealed class SettingsEvent {
-    /** Navigate to the custom theme color picker screen */
-    data object NavigateToCustomThemePicker : SettingsEvent()
-
     /** Navigate to the endpoint override configuration screen */
     data object NavigateToEndpointOverride : SettingsEvent()
 

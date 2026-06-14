@@ -23,16 +23,17 @@ buildscript {
 
 plugins {
     alias(libs.plugins.detekt)
+    alias(libs.plugins.kover) apply false
     alias(libs.plugins.ktlint)
     alias(libs.plugins.kotlinx.serialization) apply false
     id("openweb.nexus-publishing-plugin")
 }
 
 // Project version properties
-extra["sample_version_name"] = "2.5.0.4-rn"
-extra["sdk_version_name"] = "2.5.0"
+extra["sample_version_name"] = "3.0.0.7"
+extra["sdk_version_name"] = "3.0.0"
 extra["rn_sdk_version_name"] = "1.22.7"
-extra["build_number"] = 118
+extra["build_number"] = 126
 
 subprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")

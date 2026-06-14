@@ -111,6 +111,7 @@ object MockArticles {
         ),
         title = "The Ultimate Homemade Pasta Recipe Everyone Loves",
         imageRes = R.drawable.article_image_food,
+        inlineImage = InlineImage(R.drawable.article_image_pasta_inline, afterParagraphIndex = 2),
         source = "TASTE & TABLE",
         readTimeMinutes = 6,
         subheader = "From silky fettuccine to perfect ravioli \u2014 master fresh pasta with this foolproof guide",

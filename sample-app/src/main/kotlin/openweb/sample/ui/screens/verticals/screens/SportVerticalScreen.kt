@@ -14,21 +14,14 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.zIndex
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import openweb.sample.ui.screens.examples.compose.ui.rememberKeyboardHeight
-import openweb.sample.ui.screens.verticals.components.article.ConversationFragmentContainer
+import openweb.sample.ui.screens.verticals.components.article.ConversationContainer
 import openweb.sample.ui.screens.verticals.components.article.ImplementationInfoCard
 import openweb.sample.ui.screens.verticals.components.article.SportScoreboard
 import openweb.sample.ui.screens.verticals.components.article.VerticalTopAppBar
@@ -48,10 +41,7 @@ fun SportVerticalScreen(
     val viewModel: SportVerticalScreenContract = koinViewModel<SportVerticalScreenVM> { parametersOf(mockData) }
     val uiState by viewModel.outputs.uiState.collectAsStateWithLifecycle()
     val settingsVersion by viewModel.outputs.settingsVersion.collectAsStateWithLifecycle()
-    val keyboardHeight = rememberKeyboardHeight()
     val lazyListState = rememberLazyListState()
-    val rootView = LocalView.current
-    var isKeyboardVisible by remember { mutableStateOf(false) }
 
     val activity = LocalContext.current as FragmentActivity
     val fragmentManager = activity.supportFragmentManager
@@ -60,7 +50,6 @@ fun SportVerticalScreen(
         viewModel.inputs.initializeBeforeFragment()
     }
 
-    // Detect when screen resumes (e.g., returning from settings)
     DisposableEffect(Unit) {
         val lifecycleObserver = LifecycleEventObserver { _, event ->
             if (event == Lifecycle.Event.ON_RESUME) {
@@ -70,31 +59,6 @@ fun SportVerticalScreen(
         activity.lifecycle.addObserver(lifecycleObserver)
         onDispose {
             activity.lifecycle.removeObserver(lifecycleObserver)
-        }
-    }
-
-    // Listen to IME visibility changes directly from root view
-    DisposableEffect(rootView) {
-        val listener = android.view.ViewTreeObserver.OnGlobalLayoutListener {
-            val insets = ViewCompat.getRootWindowInsets(rootView)
-            val imeVisible = insets?.isVisible(WindowInsetsCompat.Type.ime()) ?: false
-            if (imeVisible != isKeyboardVisible) {
-                isKeyboardVisible = imeVisible
-            }
-        }
-        rootView.viewTreeObserver.addOnGlobalLayoutListener(listener)
-        onDispose {
-            rootView.viewTreeObserver.removeOnGlobalLayoutListener(listener)
-        }
-    }
-
-    // Scroll to bottom when keyboard becomes visible
-    LaunchedEffect(isKeyboardVisible) {
-        if (isKeyboardVisible) {
-            val lastIndex = lazyListState.layoutInfo.totalItemsCount - 1
-            if (lastIndex >= 0) {
-                lazyListState.animateScrollToItem(lastIndex)
-            }
         }
     }
 
@@ -114,7 +78,6 @@ fun SportVerticalScreen(
                 .fillMaxSize()
                 .padding(top = padding.calculateTopPadding())
         ) {
-            // Static scoreboard — always visible below top bar, does NOT scroll
             SportScoreboard(
                 modifier = Modifier.zIndex(1f),
                 homeScore = uiState.homeScore,
@@ -124,15 +87,12 @@ fun SportVerticalScreen(
                 goalEvent = uiState.goalEvent
             )
 
-            // Scrollable content below the scoreboard
             LazyColumn(
                 state = lazyListState,
                 modifier = Modifier
                     .fillMaxWidth()
                     .weight(1f),
-                contentPadding = PaddingValues(
-                    bottom = padding.calculateBottomPadding() + keyboardHeight.value
-                )
+                contentPadding = PaddingValues(bottom = padding.calculateBottomPadding())
             ) {
                 item {
                     ImplementationInfoCard(
@@ -145,7 +105,7 @@ fun SportVerticalScreen(
 
                 item {
                     key(settingsVersion) {
-                        ConversationFragmentContainer(
+                        ConversationContainer(
                             params = viewModel.inputs.buildConversationParams(),
                             fragmentManager = fragmentManager,
                             fragmentType = mockData.fragmentType

@@ -6,12 +6,46 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        
+
         <!-- Custom dialog theme for preferences -->
         <item name="alertDialogTheme">@style/PreferenceDialogTheme</item>
         <item name="android:alertDialogTheme">@style/PreferenceDialogTheme</item>
-        
+
         <!-- Preference Category Style -->
+        <item name="preferenceCategoryStyle">@style/PreferenceCategoryStyle</item>
+        <item name="preferenceCategoryTitleTextAppearance">@style/PreferenceCategoryTitle</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Theme used by MainActivity: no built-in action bar (we host a MaterialToolbar in the
+         layout instead) and Material 3-aligned colour roles wired to the `home_*` tokens so
+         layouts read `?attr/colorSurface`, `?attr/colorOnSurface`, etc. without referencing
+         the underlying colour resources directly. -->
+    <style name="AppTheme.Main" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/home_surface</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/home_surface</item>
+        <item name="android:statusBarColor">@color/home_surface</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <item name="colorSurface">@color/home_surface</item>
+        <item name="colorOnSurface">@color/home_on_surface</item>
+        <item name="colorSurfaceVariant">@color/home_surface_container</item>
+        <item name="colorOnSurfaceVariant">@color/home_on_surface_variant</item>
+        <item name="colorPrimaryContainer">@color/home_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/home_on_primary_container</item>
+        <item name="colorSecondaryContainer">@color/home_secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/home_on_secondary_container</item>
+        <item name="colorOutlineVariant">@color/home_outline_variant</item>
+        <item name="colorError">@color/home_error</item>
+
+        <item name="alertDialogTheme">@style/PreferenceDialogTheme</item>
+        <item name="android:alertDialogTheme">@style/PreferenceDialogTheme</item>
         <item name="preferenceCategoryStyle">@style/PreferenceCategoryStyle</item>
         <item name="preferenceCategoryTitleTextAppearance">@style/PreferenceCategoryTitle</item>
     </style>

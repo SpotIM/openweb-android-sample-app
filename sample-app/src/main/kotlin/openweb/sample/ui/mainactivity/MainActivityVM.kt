@@ -7,9 +7,6 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import spotIm.common.api.OWManager
-import openweb.sample.data.repository.SettingsRepository
-import openweb.sample.ui.features.customui.SampleAppCustomUIDelegate
-import openweb.sample.utils.GiphyHandler
 
 /**
  * ViewModel for MainActivity.
@@ -35,7 +32,6 @@ interface MainActivityVMContract {
 
 class MainActivityVM(
     private val owManager: OWManager,
-    private val settingsRepository: SettingsRepository
 ) : MainActivityVMContract,
     MainActivityVMInputs,
     MainActivityVMOutputs,
@@ -47,11 +43,6 @@ class MainActivityVM(
     private val _navigationEvent = MutableSharedFlow<NavigationDestination>(replay = 0)
     override val navigationEvent: SharedFlow<NavigationDestination> = _navigationEvent.asSharedFlow()
 
-    init {
-        setupCustomUIDelegates()
-        setupGiphyProvider()
-    }
-
     override fun initializeArguments(destination: String?) {
         viewModelScope.launch {
             val navigationDestination =
@@ -62,9 +53,4 @@ class MainActivityVM(
         }
     }
 
-    private fun setupCustomUIDelegates() =
-        owManager.ui.customizations.setCustomUIDelegate(SampleAppCustomUIDelegate(settingsRepository))
-
-    private fun setupGiphyProvider() =
-        owManager.ui.customizations.setGiphyProvider(GiphyHandler)
 }

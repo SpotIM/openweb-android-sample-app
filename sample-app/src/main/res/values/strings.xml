@@ -116,4 +116,53 @@
     <string name="about_terms_title" translatable="false">Terms of Service</string>
     <string name="about_terms_description" translatable="false">https://www.openweb.com/terms</string>
 
+    <!-- Element Customizations screen -->
+    <string name="element_customizations_expand_all" translatable="false">Expand All</string>
+    <string name="element_customizations_collapse_all" translatable="false">Collapse All</string>
+    <string name="element_customizations_subtitle" translatable="false">%1$d elements · %2$d modified</string>
+
+    <!-- UI Components screen -->
+    <string name="ui_components_btn_pre_conversation" translatable="false">Pre-Conversation</string>
+    <string name="ui_components_btn_conversation" translatable="false">Conversation</string>
+    <string name="ui_components_label_navigation_mode" translatable="false">Navigation Mode</string>
+    <string name="ui_components_nav_full_screen" translatable="false">Full Screen</string>
+    <string name="ui_components_nav_custom" translatable="false">Custom</string>
+    <string name="ui_components_label_conversation_route" translatable="false">Conversation Route</string>
+    <string name="ui_components_label_comment_id" translatable="false">Comment ID</string>
+    <string name="ui_components_hint_comment_id" translatable="false">Enter Comment ID</string>
+    <!-- Preview-only labels for RadioButtons replaced at runtime -->
+    <string name="ui_components_route_none" translatable="false">None</string>
+    <string name="ui_components_route_thread" translatable="false">Thread</string>
+    <string name="ui_components_route_new_comment" translatable="false">New Comment</string>
+    <string name="ui_components_route_reply" translatable="false">Reply</string>
+    <string name="ui_components_route_edit_comment" translatable="false">Edit Comment</string>
+    <!-- API surface selector (Fragment vs Compose) and Compose-only options -->
+    <string name="ui_components_label_api_surface" translatable="false">API Surface</string>
+    <string name="ui_components_api_surface_fragment" translatable="false">Fragment</string>
+    <string name="ui_components_api_surface_compose" translatable="false">Compose</string>
+    <string name="ui_components_label_compose_host" translatable="false">Compose Host</string>
+    <string name="ui_components_compose_host_direct" translatable="false">Direct</string>
+    <string name="ui_components_compose_host_navhost" translatable="false">NavHost</string>
+    <string name="ui_components_label_compose_scenario" translatable="false">Scenario</string>
+
+    <!-- Home menu rows (5 cards) -->
+    <string name="home_menu_title_ui_components" translatable="false">UI Components</string>
+    <string name="home_menu_desc_ui_components" translatable="false">Configure surface, scenario, route &amp; launch</string>
+    <string name="home_menu_title_ui_flows" translatable="false">UI Flows</string>
+    <string name="home_menu_desc_ui_flows" translatable="false">Legacy flows API (regression)</string>
+    <string name="home_menu_title_ui_views" translatable="false">UI Views</string>
+    <string name="home_menu_desc_ui_views" translatable="false">Legacy view-based components</string>
+    <string name="home_menu_title_miscellaneous" translatable="false">Miscellaneous</string>
+    <string name="home_menu_desc_miscellaneous" translatable="false">Debugging utilities</string>
+    <string name="home_menu_title_vertical_demo" translatable="false">Vertical Demo (Compose)</string>
+    <string name="home_menu_desc_vertical_demo" translatable="false">Pure-Compose demo NavHost</string>
+    <string name="home_metadata_title" translatable="false">Metadata:</string>
+    <string name="home_select_preset" translatable="false">Select Preset</string>
+    <string name="home_spot_id" translatable="false">Spot ID</string>
+    <string name="home_post_id" translatable="false">Post ID</string>
+
+    <!-- UI Components action cards (Pre-Conversation / Conversation) -->
+    <string name="ui_components_pre_conversation_desc" translatable="false">Open the collapsed teaser</string>
+    <string name="ui_components_conversation_desc" translatable="false">Open the full discussion view</string>
+
 </resources>

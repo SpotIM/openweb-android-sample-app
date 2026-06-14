@@ -1,5 +1,10 @@
 package openweb.sample.utils
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
+import android.provider.Settings
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -18,10 +23,12 @@ import spotIm.common.api.model.localization.OWLanguageStrategy.Device
 import spotIm.common.api.model.localization.OWLanguageStrategy.ServerConfig
 import spotIm.common.api.model.localization.OWLocaleStrategy
 import spotIm.common.api.model.localization.OWSupportedLanguage
+import spotIm.common.api.model.settings.article.OWArticleSettings
 import spotIm.common.api.model.settings.commentcreation.styles.OWCommentCreationStyle
 import spotIm.common.api.model.settings.commentcreation.styles.OWCommentCreationStyle.Floating
 import spotIm.common.api.model.settings.commentcreation.styles.OWCommentCreationStyle.Light
 import spotIm.common.api.model.settings.commentcreation.styles.OWCommentCreationStyle.Regular
+import spotIm.sdk.OpenWeb
 
 inline fun <reified T : Any> T?.toJson(prettyPrinting: Boolean = false): String? {
     if (this == null) return null
@@ -123,3 +130,35 @@ fun <T> View.collectFlowWithLifecycle(flow: Flow<T>, collect: suspend (T) -> Uni
 }
 
 fun String.isValidBaseUrl() = this.isNotEmpty() && (this.startsWith("http://") || this.startsWith("https://"))
+
+fun Context.openNotificationSettings() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        startActivity(
+            Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                .putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
+        )
+    } else {
+        startActivity(
+            Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                .setData(Uri.fromParts("package", packageName, null))
+        )
+    }
+}
+
+/**
+ * Opens a conversation routed from a push notification intent, if the intent carries valid
+ * routing data with a non-empty post ID.
+ *
+ * Call this from both [onCreate] (with the launch intent) and [onNewIntent] (with the new intent)
+ * so that deep-links from notifications are handled regardless of whether the activity is already
+ * running.
+ */
+fun handleNotificationIntent(intent: Intent) {
+    val data = OpenWeb.manager.helpers.getRoutingData(intent) ?: return
+    if (data.postId.isEmpty()) return
+    OpenWeb.manager.ui.components.openConversation(
+        postId = data.postId,
+        route = data.route,
+        articleSettings = OWArticleSettings()
+    )
+}

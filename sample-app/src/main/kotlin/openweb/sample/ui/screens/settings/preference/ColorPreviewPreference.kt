@@ -9,6 +9,7 @@ import androidx.preference.PreferenceViewHolder
 import androidx.preference.R as PreferenceR
 import openweb.sample.R
 import openweb.sample.databinding.PreferenceColorPreviewBinding
+import androidx.core.graphics.toColorInt
 
 class ColorPreviewPreference @JvmOverloads constructor(
     context: Context,
@@ -21,9 +22,12 @@ class ColorPreviewPreference @JvmOverloads constructor(
 
     var colorValue: Int = Color.BLACK
         set(value) {
+            if (field == value) return
             field = value
             notifyChanged()
         }
+
+    var onResetClicked: (() -> Unit)? = null
 
     init {
         layoutResource = R.layout.preference_color_preview
@@ -38,9 +42,11 @@ class ColorPreviewPreference @JvmOverloads constructor(
         val drawable = GradientDrawable().apply {
             shape = GradientDrawable.OVAL
             setColor(colorValue)
-            setStroke((2 * context.resources.displayMetrics.density).toInt(), Color.parseColor("#CCCCCC"))
+            setStroke((2 * context.resources.displayMetrics.density).toInt(), "#CCCCCC".toColorInt())
         }
 
         binding.colorPreview.background = drawable
+
+        binding.resetColorBtn.setOnClickListener { onResetClicked?.invoke() }
     }
 }

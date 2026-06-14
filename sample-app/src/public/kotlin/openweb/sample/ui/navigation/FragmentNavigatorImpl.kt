@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import openweb.sample.R
 import openweb.sample.ui.screens.settings.SettingsFragment
 import openweb.sample.ui.screens.settings.SettingsScreen
-import openweb.sample.ui.screens.settings.customtheme.CustomThemePickerFragment
+import openweb.sample.ui.screens.settings.elementcustomizations.ElementCustomizationsFragment
 
 /**
  * Public variant implementation of [FragmentNavigator] providing Settings screen navigation.
@@ -40,8 +40,8 @@ class FragmentNavigatorImpl(
         replaceFragment(fragment, addToBackStack = true)
     }
 
-    override fun navigateToCustomThemePicker() {
-        val fragment = CustomThemePickerFragment.newInstance()
+    override fun navigateToElementCustomizations() {
+        val fragment = ElementCustomizationsFragment.newInstance()
         replaceFragment(fragment, addToBackStack = true)
     }
 

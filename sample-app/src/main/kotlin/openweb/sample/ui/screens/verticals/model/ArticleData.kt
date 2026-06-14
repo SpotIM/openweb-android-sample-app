@@ -11,5 +11,6 @@ data class ArticleData(
     val readTimeMinutes: Int? = null,
     val subheader: String? = null,
     val authorName: String? = null,
-    val authorDate: String? = null
+    val authorDate: String? = null,
+    val inlineImage: InlineImage? = null,
 )

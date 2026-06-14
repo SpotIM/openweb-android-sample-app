@@ -24,7 +24,12 @@ sealed class PreferenceKey(val key: String) {
 
     // Customizations
     data object CustomDarkColor : PreferenceKey("custom_dark_color")
-    data object CustomThemeColors : PreferenceKey("custom_theme_colors")
+    data object CustomElementColors : PreferenceKey("custom_element_colors")
+    data object CombinedThemeColors : PreferenceKey("combined_theme_colors")
+    // Keys below are used as storage keys by SharedPrefsItem (data layer); no longer shown as preferences
+    data object CustomFontElements : PreferenceKey("custom_font_elements")
+    data object CustomElementCustomization : PreferenceKey("custom_element_customization")
+    data object ElementCustomizations : PreferenceKey("element_customizations")
     data object InitialSortOption : PreferenceKey("initial_sort_option")
     data object CommentActionColor : PreferenceKey("comment_action_color_style")
     data object CommentActionFont : PreferenceKey("comment_action_font_style")
@@ -32,8 +37,6 @@ sealed class PreferenceKey(val key: String) {
     data object ThemeMode : PreferenceKey("theme_mode")
     data object IsDarkMode : PreferenceKey("darkMode")
     data object SupportSystemDarkMode : PreferenceKey("supportSystemDarkMode")
-    data object EnableCustomUIDelegation : PreferenceKey("enable_custom_ui_delegation")
-
     // Configurations
     data object LanguageStrategy : PreferenceKey("language_strategy")
     data object CustomLanguage : PreferenceKey("custom_language")

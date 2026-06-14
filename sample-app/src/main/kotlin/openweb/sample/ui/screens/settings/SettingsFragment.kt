@@ -1,6 +1,7 @@
 package openweb.sample.ui.screens.settings
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Parcelable
 import android.view.Menu
@@ -9,6 +10,8 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.jaredrummler.android.colorpicker.ColorPickerDialog
+import com.jaredrummler.android.colorpicker.ColorPickerDialogListener
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
 import androidx.preference.ListPreference
@@ -47,9 +50,9 @@ import spotIm.common.internal.helpers.getParcelableObject
  * - Article and screen settings
  * - Internal debugging tools (internal builds only)
  *
- * Settings are persisted via [SettingsRepository] and applied to the SDK in real-time.
+ * Settings are persisted via [openweb.sample.data.repository.SettingsRepository] and applied to the SDK in real-time.
  */
-class SettingsFragment : PreferenceFragmentCompat() {
+class SettingsFragment : PreferenceFragmentCompat(), ColorPickerDialogListener {
 
     private val preferenceDataStore: PreferenceDataStore by inject()
     private val viewModel: SettingsVMContract by viewModel<SettingsVM>()
@@ -184,13 +187,16 @@ class SettingsFragment : PreferenceFragmentCompat() {
     }
 
     private fun setupCustomizationsPreferences() {
-        pref<ColorPreviewPreference>(PreferenceKey.CustomDarkColor)?.setOnPreferenceClickListener {
-            viewModel.inputs.onCustomDarkColorClicked()
-            true
+        pref<ColorPreviewPreference>(PreferenceKey.CustomDarkColor)?.apply {
+            setOnPreferenceClickListener {
+                viewModel.inputs.onCustomDarkColorClicked()
+                true
+            }
+            onResetClicked = { viewModel.inputs.onCustomDarkColorReset() }
         }
 
-        pref<Preference>(PreferenceKey.CustomThemeColors)?.setOnPreferenceClickListener {
-            navigator.navigateToCustomThemePicker()
+        pref<Preference>(PreferenceKey.ElementCustomizations)?.setOnPreferenceClickListener {
+            navigator.navigateToElementCustomizations()
             true
         }
     }
@@ -316,7 +322,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
     private fun observeFlows() {
         collectLatestLifecycleFlow(viewModel.outputs.events) { event ->
             when (event) {
-                is SettingsEvent.NavigateToCustomThemePicker -> navigator.navigateToCustomThemePicker()
                 is SettingsEvent.NavigateToEndpointOverride -> navigator.navigateToEndpointOverride()
                 is SettingsEvent.NavigateToNestedMenu -> navigator.navigateToNestedSettingsMenu(event.screen)
                 is SettingsEvent.ChangeEnvironment ->
@@ -333,12 +338,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
                         onConfirm = event.onConfirm
                     )
 
-                is SettingsEvent.ShowColorPicker ->
-                    SettingsDialogHelper.showColorPickerDialog(
-                        context = requireContext(),
-                        onColorSelected = { viewModel.inputs.onCustomDarkColorSelected(it) },
-                        onReset = { viewModel.inputs.onCustomDarkColorReset() }
-                    )
+                is SettingsEvent.ShowColorPicker -> openColorPicker(event.currentColor)
 
                 is SettingsEvent.TriggerRestart -> triggerRestart()
 
@@ -364,6 +364,25 @@ class SettingsFragment : PreferenceFragmentCompat() {
             colorValue = state.colorValue
         }
     }
+
+    private fun openColorPicker(currentColor: Int) {
+        val dialog = ColorPickerDialog.newBuilder()
+            .setColor(currentColor.takeIf { it != -1 } ?: Color.WHITE)
+            .setAllowPresets(false)
+            .setAllowCustom(true)
+            .setShowAlphaSlider(true)
+            .setDialogType(ColorPickerDialog.TYPE_CUSTOM)
+            .setDialogId(0)
+            .create()
+        dialog.setColorPickerDialogListener(this)
+        dialog.show(childFragmentManager, "color-picker")
+    }
+
+    override fun onColorSelected(dialogId: Int, color: Int) {
+        viewModel.inputs.onCustomDarkColorSelected(color)
+    }
+
+    override fun onDialogDismissed(dialogId: Int) = Unit
 
     private fun updatePreferenceEnabledState(state: PreferenceEnabledState) {
         pref<Preference>(PreferenceKey.EnvironmentBaseUrl)?.isEnabled = state.environmentCustomFieldsEnabled

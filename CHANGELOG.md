@@ -4,6 +4,39 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2026-06-14
+### New Features
+- **Push Notifications:** Introduced a complete push notification system that periodically fetches and displays interaction notifications (replies, likes, and mentions) while the app is in the background. Includes publisher-configurable tap destinations and custom sounds, optional article images, smart aggregation and re-pop logic, runtime permission handling, and dedicated analytics.
+### API & SDK Changes
+- **Compose Extension Library (spotim-compose):** Introduced a new optional Jetpack Compose library that wraps the SDK and exposes Compose-idiomatic `PreConversation` and `Conversation` composables, with `Modifier` support and lambda-based action and error callbacks. Shipped alongside the core SDK and as a standalone library.
+- **Redesigned Customization (Elements) API:** Introduced a new elements-based customization API where every UI element is pre-initialized and configured by mutating properties directly — no wrapper objects required.
+  - Added per-element font family and font weight customization, applied consistently across all SDK screens.
+  - Added per-element custom view callbacks so declarative styling and full view access can coexist on the same element, replacing the global custom-UI delegate.
+- Made the Components API available across all SDK flavors.
+- Upgraded the SDK to Kotlin 2.0.0.
+- Deprecated the `UI.Views` and `UI.Flows` APIs.
+### Bug Fixes
+- Resolved a crash that occurred in the SSO renewal callback when the conversation view was detached.
+- Resolved an issue where the conversation could freeze when restoring the app from the background.
+- Fixed an issue where Full Conversation, Comment Creation, and Comment Thread occasionally failed to open on the first tap after closing and reopening the app.
+- Fixed an issue where opening a reply from the full conversation after login could show an empty Comment Thread.
+- Ensured the SDK consistently honors the configured initial sort mode when opening a conversation.
+- Corrected real-time moderation so that comments receiving a reject verdict now display the blocked nudge instead of the pending nudge.
+- Fixed an issue where the moderation nudge message did not reappear when flagged text was re-typed in edit mode.
+- Fixed an issue where a reply to the only root comment did not render in the conversation list.
+- Fixed an issue where the first comment posted by a guest was displayed without a username.
+- Fixed an issue where photo and GIF uploads stopped working in certain cases.
+- Ensured Floating Comment Creation collapses after posting a rating-only comment.
+- Corrected the profile avatar to display as a circle instead of a square.
+- Corrected the title shown on the Edit Reply screen for the Regular and Light styles.
+### Improvements
+- Improved the post-login experience so that an action requiring authentication (vote, comment, or reply) is automatically completed after a successful login instead of being lost.
+- Added a progress indicator on the Post button when posting a comment immediately after login.
+### Customer-Specific Fixes
+- [MarketWatch] Resolved a crash that occurred when fetching an SSO authentication code via `startSSO`, and addressed a related error that surfaced when user details could not be retrieved.
+- [WSJ] Fixed an issue where the conversation could load indefinitely in certain integrations.
+- Fixed an issue where the Recommend button was not tappable while only the star rating responded.
+
 ## [2.5.0] - 2026-03-31
 ### New Features
 - Introduced the Components API, a new unified API combining Views and Flows capabilities with simplified integration through three

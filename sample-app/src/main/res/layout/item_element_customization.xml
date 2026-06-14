@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <!-- Header row: chevron + name + tags + modified dot -->
+        <LinearLayout
+            android:id="@+id/headerRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground">
+
+            <!-- Chevron at start (LTR) -->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/chevron"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="6dp"
+                android:src="@drawable/ic_chevron_right"
+                android:alpha="0.5"
+                android:scaleType="fitCenter"
+                android:focusable="false"
+                android:clickable="false"
+                android:contentDescription="Expand" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/elementNameTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/defaultTextColor"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="Navigation Title" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tagCallback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/bg_badge_callback"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                android:text="CB"
+                android:textColor="@color/badge_callback_text"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tagFont"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/bg_badge_font"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                android:text="Aa"
+                android:textColor="#0BA5EC"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/tagColor"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="6dp"
+                android:src="@drawable/ic_badge_color"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/modifiedDot"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/ic_modified"
+                android:contentDescription="Modified"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+
+        <!-- Expandable body: hidden by default, shown when card is expanded -->
+        <LinearLayout
+            android:id="@+id/expandableBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <!-- Callback section -->
+            <LinearLayout
+                android:id="@+id/callbackSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.5"
+                    android:text="CALLBACK"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="11sp"
+                    android:textAllCaps="true" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/callbackSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/callbackStatusTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:alpha="0.7"
+                    android:textColor="@color/defaultTextColor"
+                    android:textSize="12sp"
+                    tools:text="Using default" />
+
+            </LinearLayout>
+
+            <!-- Font section -->
+            <LinearLayout
+                android:id="@+id/fontSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <!-- Font family row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.5"
+                        android:text="FONT"
+                        android:textColor="@color/defaultTextColor"
+                        android:textSize="11sp"
+                        android:textAllCaps="true" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="56dp"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.5"
+                        android:text="Family"
+                        android:textColor="@color/defaultTextColor"
+                        android:textSize="11sp" />
+
+                    <Spinner
+                        android:id="@+id/fontFamilySpinner"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <EditText
+                        android:id="@+id/fontFamilyInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="Font family name…"
+                        android:visibility="gone"
+                        android:inputType="text"
+                        android:imeOptions="actionDone"
+                        android:singleLine="true"
+                        android:textSize="13sp"
+                        android:textColor="@color/defaultTextColor" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/fontFamilyClearBtn"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="4dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/ic_close"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="Clear custom font"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+                <!-- Font weight row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:layout_width="80dp"
+                        android:layout_height="1dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="56dp"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.5"
+                        android:text="Weight"
+                        android:textColor="@color/defaultTextColor"
+                        android:textSize="11sp" />
+
+                    <Spinner
+                        android:id="@+id/fontWeightSpinner"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- NEW API color section -->
+            <LinearLayout
+                android:id="@+id/colorNewSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <!-- NEW top row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NEW"
+                        android:textColor="#4CAF50"
+                        android:textSize="11sp"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:minWidth="56dp" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/colorNewSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <openweb.sample.ui.screens.settings.customtheme.CustomColorCheckBox
+                        android:id="@+id/colorNewLightBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="8dp"
+                        app:checkBoxText="L" />
+
+                    <openweb.sample.ui.screens.settings.customtheme.CustomColorCheckBox
+                        android:id="@+id/colorNewDarkBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="8dp"
+                        app:checkBoxText="D" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/colorNewShuffleBtn"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="8dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Roll random colors (new API)"
+                        android:src="@drawable/ic_shuffle"
+                        android:scaleType="fitCenter"
+                        android:padding="2dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <!-- NEW API key row -->
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/modernKeyTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="monospace"
+                    android:textColor="#4CAF50"
+                    android:textSize="11sp"
+                    tools:text="commentBody" />
+
+            </LinearLayout>
+
+            <!-- LEGACY API color section -->
+            <LinearLayout
+                android:id="@+id/colorLegacySection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <!-- LEGACY top row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LEGACY"
+                        android:textColor="@color/defaultTextColor"
+                        android:alpha="0.5"
+                        android:textSize="11sp"
+                        android:textAllCaps="true"
+                        android:minWidth="56dp" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/colorLegacySwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <openweb.sample.ui.screens.settings.customtheme.CustomColorCheckBox
+                        android:id="@+id/colorLegacyLightBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="8dp"
+                        app:checkBoxText="L" />
+
+                    <openweb.sample.ui.screens.settings.customtheme.CustomColorCheckBox
+                        android:id="@+id/colorLegacyDarkBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="8dp"
+                        app:checkBoxText="D" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/colorLegacyShuffleBtn"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="8dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Roll random colors (legacy API)"
+                        android:src="@drawable/ic_shuffle"
+                        android:scaleType="fitCenter"
+                        android:padding="2dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <!-- LEGACY API key row -->
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/legacyKeyTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="monospace"
+                    android:textColor="@color/defaultTextColor"
+                    android:alpha="0.6"
+                    android:textSize="11sp"
+                    tools:text="primaryTextColor" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

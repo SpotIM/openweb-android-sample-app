@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginTop="12dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Element name header -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/elementName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/defaultTextColor"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="Navigation Title" />
+
+        <!-- Font Family row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="96dp"
+                android:layout_height="wrap_content"
+                android:text="Family"
+                android:textColor="@color/defaultTextColor"
+                android:textSize="13sp"
+                android:alpha="0.7" />
+
+            <Spinner
+                android:id="@+id/fontFamilySpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <!-- Font Weight row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="96dp"
+                android:layout_height="wrap_content"
+                android:text="Weight"
+                android:textColor="@color/defaultTextColor"
+                android:textSize="13sp"
+                android:alpha="0.7" />
+
+            <Spinner
+                android:id="@+id/fontWeightSpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

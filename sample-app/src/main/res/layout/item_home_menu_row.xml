@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    Reusable menu-row card. Included once per row in fragment_home.xml and twice on the
+    UI Components screen for Pre-Conversation / Conversation. The outer LinearLayout gets
+    its accessibility id from the <include android:id="..."/> tag; inner child views keep
+    these template-level ids and are populated programmatically via View.bindHomeMenuRow.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/SampleApp.HomeMenuRow"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="@dimen/home_menu_icon_tile_size"
+        android:layout_height="@dimen/home_menu_icon_tile_size"
+        android:background="@drawable/home_icon_tile">
+
+        <ImageView
+            android:id="@+id/home_menu_row_icon"
+            android:layout_width="@dimen/home_menu_icon_size"
+            android:layout_height="@dimen/home_menu_icon_size"
+            android:layout_gravity="center"
+            android:importantForAccessibility="no" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/home_menu_text_margin_start"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/home_menu_row_title"
+            style="@style/SampleApp.HomeMenuRowTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/home_menu_row_subtitle"
+            style="@style/SampleApp.HomeMenuRowSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="@dimen/home_menu_chevron_size"
+        android:layout_height="@dimen/home_menu_chevron_size"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_home_chevron" />
+</LinearLayout>

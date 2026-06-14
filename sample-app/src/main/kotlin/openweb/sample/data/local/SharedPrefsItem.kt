@@ -15,7 +15,9 @@ import spotIm.common.internal.model.settings.OWEnvironment
 import openweb.sample.data.repository.SettingsRepository
 import openweb.sample.ui.model.ConversationSettingsModel
 import openweb.sample.ui.model.PreConversationSettingsModel
-import openweb.sample.ui.screens.settings.customtheme.CustomThemeSetting
+import openweb.sample.ui.screens.settings.customelement.CustomElementSetting
+import openweb.sample.ui.screens.settings.customfont.CustomFontSetting
+import openweb.sample.ui.screens.settings.customtheme.CombinedThemeColorSetting
 import openweb.sample.ui.screens.settings.enums.FontFamilyType
 import openweb.sample.utils.BuildUtils
 import openweb.sample.utils.PreferenceKey
@@ -136,8 +138,18 @@ sealed class SharedPrefsItem<T>(val key: String, val defaultValue: T) {
         defaultValue = null
     )
 
-    data object CustomThemeColors : SharedPrefsItem<ArrayList<CustomThemeSetting>?>(
-        key = PreferenceKey.CustomThemeColors.key,
+    data object CombinedThemeColors : SharedPrefsItem<ArrayList<CombinedThemeColorSetting>?>(
+        key = PreferenceKey.CombinedThemeColors.key,
+        defaultValue = null
+    )
+
+    data object CustomFontElements : SharedPrefsItem<List<CustomFontSetting>?>(
+        key = PreferenceKey.CustomFontElements.key,
+        defaultValue = null
+    )
+
+    data object CustomElementToggles : SharedPrefsItem<List<CustomElementSetting>?>(
+        key = PreferenceKey.CustomElementCustomization.key,
         defaultValue = null
     )
 
@@ -203,11 +215,6 @@ sealed class SharedPrefsItem<T>(val key: String, val defaultValue: T) {
     data object EnableLoginDelegation : SharedPrefsItem<Boolean>(
         key = PreferenceKey.EnableLoginDelegation.key,
         defaultValue = BuildUtils.isInternalBuild()
-    )
-
-    data object EnableCustomUIDelegation : SharedPrefsItem<Boolean>(
-        key = PreferenceKey.EnableCustomUIDelegation.key,
-        defaultValue = false
     )
 
     data object ProfileUrlPath : SharedPrefsItem<String?>(
