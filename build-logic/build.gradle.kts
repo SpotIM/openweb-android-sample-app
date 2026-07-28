@@ -11,6 +11,6 @@ repositories {
 
 dependencies {
     implementation("com.android.tools.build:gradle:8.7.1")
-    implementation("io.github.gradle-nexus:publish-plugin:1.3.0")
+    implementation("com.gradleup.nmcp:nmcp:1.4.0")
 }
 

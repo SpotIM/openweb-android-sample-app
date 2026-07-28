@@ -26,14 +26,14 @@ plugins {
     alias(libs.plugins.kover) apply false
     alias(libs.plugins.ktlint)
     alias(libs.plugins.kotlinx.serialization) apply false
-    id("openweb.nexus-publishing-plugin")
+    id("openweb.central-publishing-plugin")
 }
 
 // Project version properties
-extra["sample_version_name"] = "3.0.0.7"
-extra["sdk_version_name"] = "3.0.0"
-extra["rn_sdk_version_name"] = "1.22.7"
-extra["build_number"] = 126
+extra["sample_version_name"] = "3.1.0.2"
+extra["sdk_version_name"] = "3.1.0"
+extra["rn_sdk_version_name"] = "2.6.0"
+extra["build_number"] = 128
 
 subprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")

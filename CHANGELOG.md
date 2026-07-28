@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.0] - 2026-07-26
+### New Features
+- User Profiles: Introduced a native user profile experience for viewing a user's profile, comment and reply history, and activity, with profile editing, privacy controls, muted-user management, and account data request/deletion.
+- Star Rating Quick Submit: Added the ability to rate an article directly from the ratings summary without opening comment creation; the submitted rating is displayed and remembered per article.
+### API & SDK Changes
+- Introduced a social review summary customization element for the element-based customization API.
+- Streamlined the set of BI analytics events reported to host apps; several events are no longer forwarded through the analytics delegate.
+- Expanded inline documentation across the public API to clarify the recommended integration paths.
+- Deprecated the legacy theme-based color API in favor of the element-based customization API.
+- Deprecated the legacy Views and Flows UI entry points in favor of the unified Components API (OpenWeb.manager.ui.components); the legacy entry points remain available until the next major version.
+### Bug Fixes
+- Corrected background color customization not being applied in landscape orientation.
+### Customer-Specific Fixes
+- [Immediate Media] Fixed an issue where the Pre-Conversation did not refresh after submitting a comment and returning to it.
+
 ## [3.0.0] - 2026-06-14
 ### New Features
 - **Push Notifications:** Introduced a complete push notification system that periodically fetches and displays interaction notifications (replies, likes, and mentions) while the app is in the background. Includes publisher-configurable tap destinations and custom sounds, optional article images, smart aggregation and re-pop logic, runtime permission handling, and dedicated analytics.

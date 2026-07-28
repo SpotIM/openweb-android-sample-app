@@ -21,3 +21,7 @@ sentry.properties
 /build-logic/build/
 /build-logic/bin/
 /sample-app-extensions/build/
+
+# Python bytecode (scripts/)
+__pycache__/
+*.pyc
