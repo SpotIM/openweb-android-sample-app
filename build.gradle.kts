@@ -32,7 +32,7 @@ plugins {
 // Project version properties
 extra["sample_version_name"] = "3.1.0.2"
 extra["sdk_version_name"] = "3.1.0"
-extra["rn_sdk_version_name"] = "2.6.0"
+extra["rn_sdk_version_name"] = "3.1.0"
 extra["build_number"] = 128
 
 subprojects {
