@@ -30,10 +30,31 @@ plugins {
 }
 
 // Project version properties
-extra["sample_version_name"] = "3.1.0.2"
-extra["sdk_version_name"] = "3.1.0"
-extra["rn_sdk_version_name"] = "3.1.0"
-extra["build_number"] = 128
+extra["sample_version_name"] = "3.2.0.1"
+extra["sdk_version_name"] = "3.2.0"
+extra["rn_sdk_version_name"] = "3.2.0"
+extra["build_number"] = 129
+
+// Signing secrets: keystore.properties (gitignored) first, then findProperty
+// (gradle.properties / ~/.gradle / -P / ORG_GRADLE_PROJECT_*). Absent -> null.
+fun loadSigningSecrets() {
+    val keystoreProperties = java.util.Properties().apply {
+        val file = rootProject.file("keystore.properties")
+        if (file.exists()) file.inputStream().use { load(it) }
+    }
+    fun resolve(key: String): String? =
+        keystoreProperties.getProperty(key) ?: (findProperty(key) as String?)
+
+    listOf(
+        "signingPassword",
+        "signingSecretKeyRingFile",
+        "sampleAppKeystoreFile",
+        "sampleAppStorePassword",
+        "sampleAppKeyAlias",
+        "sampleAppKeyPassword"
+    ).forEach { key -> extra[key] = resolve(key) }
+}
+loadSigningSecrets()
 
 subprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")

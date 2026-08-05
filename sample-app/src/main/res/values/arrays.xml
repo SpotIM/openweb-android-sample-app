@@ -189,6 +189,42 @@
         <item>Custom</item>
     </string-array>
 
+    <!-- Navigation Toolbar Style -->
+    <string-array name="nav_toolbar_style_entries">
+        <item>Regular</item>
+        <item>None</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="nav_toolbar_style_values">
+        <item>Regular</item>
+        <item>None</item>
+        <item>Custom</item>
+    </string-array>
+
+    <!-- Navigation Back Button Style -->
+    <string-array name="nav_back_button_style_entries">
+        <item>Back Arrow</item>
+        <item>Close (X)</item>
+        <item>Hidden</item>
+    </string-array>
+    <string-array name="nav_back_button_style_values">
+        <item>BackArrow</item>
+        <item>Close</item>
+        <item>None</item>
+    </string-array>
+
+    <!-- Pre Conversation Header Style -->
+    <string-array name="pre_conversation_header_style_entries">
+        <item>Regular</item>
+        <item>None</item>
+        <item>Hidden Title</item>
+    </string-array>
+    <string-array name="pre_conversation_header_style_values">
+        <item>Regular</item>
+        <item>None</item>
+        <item>HiddenTitle</item>
+    </string-array>
+
     <!-- Comment Creation Style -->
     <string-array name="comment_creation_style_entries">
         <item>Regular</item>

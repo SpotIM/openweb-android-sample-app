@@ -41,6 +41,7 @@ import org.koin.core.parameter.parametersOf
 import openweb.sample.ui.screens.verticals.components.article.ArticleContent
 import openweb.sample.ui.screens.verticals.components.article.BottomSheetContainer
 import openweb.sample.ui.screens.verticals.components.article.ImplementationInfoCard
+import openweb.sample.ui.screens.verticals.components.article.ReactionsCard
 import openweb.sample.ui.screens.verticals.components.article.VerticalTopAppBar
 import openweb.sample.ui.screens.verticals.model.VerticalMockData
 
@@ -108,6 +109,14 @@ fun SiderailVerticalScreen(
                     info = mockData.implementationInfo,
                     expanded = uiState.implementationInfoExpanded,
                     onToggle = { viewModel.inputs.onImplementationInfoClicked() },
+                    iconColor = mockData.color
+                )
+
+                ReactionsCard(
+                    postId = mockData.article.conversationIds.postId,
+                    themeName = mockData.title,
+                    expanded = uiState.reactionsExpanded,
+                    onToggle = { viewModel.inputs.onReactionsClicked() },
                     iconColor = mockData.color
                 )
             }

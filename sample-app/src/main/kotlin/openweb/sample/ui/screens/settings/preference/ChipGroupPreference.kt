@@ -3,13 +3,12 @@ package openweb.sample.ui.screens.settings.preference
 import android.content.Context
 import android.util.AttributeSet
 import androidx.core.content.withStyledAttributes
-import androidx.core.view.forEach
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
-import androidx.preference.R as PreferenceR
 import com.google.android.material.chip.Chip
 import openweb.sample.R
 import openweb.sample.databinding.PreferenceChipGroupBinding
+import androidx.preference.R as PreferenceR
 
 /**
  * Custom preference that displays options as a horizontal chip group
@@ -125,14 +124,6 @@ class ChipGroupPreference @JvmOverloads constructor(
     }
 
     fun getValue(): String? = selectedValue
-
-    override fun setEnabled(enabled: Boolean) {
-        super.setEnabled(enabled)
-
-        _binding?.chipGroup?.forEach { child ->
-            (child as? Chip)?.isEnabled = enabled
-        }
-    }
 
     private fun setValueInternal(value: String?, shouldPersist: Boolean) {
         val changed = selectedValue != value

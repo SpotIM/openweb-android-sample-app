@@ -231,6 +231,17 @@ class SettingsFragment : PreferenceFragmentCompat(), ColorPickerDialogListener {
             true
         }
 
+        pref<ChipGroupPreference>(PreferenceKey.ConvNavToolbarStyle)?.setOnPreferenceChangeListener { _, newValue ->
+            viewModel.inputs.onConversationNavToolbarStyleChanged(newValue as String)
+            true
+        }
+
+        pref<ChipGroupPreference>(PreferenceKey.CommentThreadNavToolbarStyle)
+            ?.setOnPreferenceChangeListener { _, newValue ->
+                viewModel.inputs.onCommentThreadNavToolbarStyleChanged(newValue as String)
+                true
+            }
+
         val spacingValidator: (String) -> String? = { value -> viewModel.inputs.validateSpacing(value) }
 
         pref<InlineEditTextPreference>(PreferenceKey.ConvSpacingBetweenComments)?.validator = spacingValidator
@@ -409,6 +420,16 @@ class SettingsFragment : PreferenceFragmentCompat(), ColorPickerDialogListener {
             state.conversationSpacingCustomFieldsEnabled
         pref<InlineEditTextPreference>(PreferenceKey.ConvSpacingQuestions)?.isEnabled =
             state.conversationSpacingCustomFieldsEnabled
+
+        pref<SwitchPreferenceCompat>(PreferenceKey.NavToolbarShowTitle)?.isEnabled =
+            state.conversationNavToolbarCustomOptionsEnabled
+        pref<ChipGroupPreference>(PreferenceKey.NavBackButtonStyle)?.isEnabled =
+            state.conversationNavToolbarCustomOptionsEnabled
+
+        pref<SwitchPreferenceCompat>(PreferenceKey.CommentThreadNavToolbarShowTitle)?.isEnabled =
+            state.commentThreadNavToolbarCustomOptionsEnabled
+        pref<ChipGroupPreference>(PreferenceKey.CommentThreadNavBackButtonStyle)?.isEnabled =
+            state.commentThreadNavToolbarCustomOptionsEnabled
     }
 
     @Parcelize

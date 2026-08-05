@@ -235,6 +235,21 @@ class SettingsPreferenceDataStore(
             PreferenceKey.CommentThreadId.key ->
                 settingsRepository[SharedPrefsItem.CommentThreadId] = value?.ifEmpty { null }
 
+            PreferenceKey.ConvNavToolbarStyle.key ->
+                value?.let { settingsRepository[SharedPrefsItem.ConversationNavToolbarStyle] = it }
+
+            PreferenceKey.CommentThreadNavToolbarStyle.key ->
+                value?.let { settingsRepository[SharedPrefsItem.CommentThreadNavToolbarStyle] = it }
+
+            PreferenceKey.CommentThreadNavBackButtonStyle.key ->
+                value?.let { settingsRepository[SharedPrefsItem.CommentThreadNavBackButtonStyle] = it }
+
+            PreferenceKey.NavBackButtonStyle.key ->
+                value?.let { settingsRepository[SharedPrefsItem.NavBackButtonStyle] = it }
+
+            PreferenceKey.PreConvHeaderStyle.key ->
+                value?.let { settingsRepository[SharedPrefsItem.PreConversationHeaderStyle] = it }
+
             PreferenceKey.Environment.key -> {
                 // Don't persist environment changes here - they will be persisted when Apply button is clicked
                 // This allows users to select different environments without immediately persisting the change
@@ -248,6 +263,10 @@ class SettingsPreferenceDataStore(
 
             PreferenceKey.ProfileUrlPath.key ->
                 settingsRepository[SharedPrefsItem.ProfileUrlPath] = value?.ifEmpty { null }
+
+            PreferenceKey.ReactionsThemeName.key ->
+                settingsRepository[SharedPrefsItem.ReactionsThemeName] = value.orEmpty()
+
         }
     }
 
@@ -258,8 +277,14 @@ class SettingsPreferenceDataStore(
             PreferenceKey.HideArticleHeader.key -> settingsRepository[SharedPrefsItem.ArticleHeaderStyle] = value
             PreferenceKey.EnableSocialReviews.key -> settingsRepository[SharedPrefsItem.EnableSocialReviews] = value
             PreferenceKey.EnablePullToRefresh.key -> settingsRepository[SharedPrefsItem.EnablePullToRefresh] = value
+            PreferenceKey.NavToolbarShowTitle.key -> settingsRepository[SharedPrefsItem.NavToolbarShowTitle] = value
+
+            PreferenceKey.CommentThreadNavToolbarShowTitle.key ->
+                settingsRepository[SharedPrefsItem.CommentThreadNavToolbarShowTitle] = value
+
             PreferenceKey.EnableLoginDelegation.key -> settingsRepository[SharedPrefsItem.EnableLoginDelegation] = value
             PreferenceKey.LoggerView.key -> settingsRepository[SharedPrefsItem.ShowLogger] = value
+            PreferenceKey.EnableReactions.key -> settingsRepository[SharedPrefsItem.EnableReactions] = value
         }
     }
 
@@ -361,10 +386,21 @@ class SettingsPreferenceDataStore(
                 settingsRepository[SharedPrefsItem.CommentCreationStyle].toString()
 
             PreferenceKey.CommentThreadId.key -> settingsRepository[SharedPrefsItem.CommentThreadId]
+            PreferenceKey.ConvNavToolbarStyle.key -> settingsRepository[SharedPrefsItem.ConversationNavToolbarStyle]
+
+            PreferenceKey.CommentThreadNavToolbarStyle.key ->
+                settingsRepository[SharedPrefsItem.CommentThreadNavToolbarStyle]
+
+            PreferenceKey.CommentThreadNavBackButtonStyle.key ->
+                settingsRepository[SharedPrefsItem.CommentThreadNavBackButtonStyle]
+
+            PreferenceKey.NavBackButtonStyle.key -> settingsRepository[SharedPrefsItem.NavBackButtonStyle]
+            PreferenceKey.PreConvHeaderStyle.key -> settingsRepository[SharedPrefsItem.PreConversationHeaderStyle]
             PreferenceKey.Environment.key -> settingsRepository[SharedPrefsItem.Environment].name
             PreferenceKey.EnvironmentBaseUrl.key -> settingsRepository[SharedPrefsItem.EnvironmentBaseUrl]
             PreferenceKey.MockSsoEnvironment.key -> settingsRepository[SharedPrefsItem.MockSSOEnvironment].name
             PreferenceKey.ProfileUrlPath.key -> settingsRepository[SharedPrefsItem.ProfileUrlPath]
+            PreferenceKey.ReactionsThemeName.key -> settingsRepository[SharedPrefsItem.ReactionsThemeName]
             else -> defValue
         }
 
@@ -375,8 +411,14 @@ class SettingsPreferenceDataStore(
             PreferenceKey.HideArticleHeader.key -> settingsRepository[SharedPrefsItem.ArticleHeaderStyle]
             PreferenceKey.EnableSocialReviews.key -> settingsRepository[SharedPrefsItem.EnableSocialReviews]
             PreferenceKey.EnablePullToRefresh.key -> settingsRepository[SharedPrefsItem.EnablePullToRefresh]
+            PreferenceKey.NavToolbarShowTitle.key -> settingsRepository[SharedPrefsItem.NavToolbarShowTitle]
+
+            PreferenceKey.CommentThreadNavToolbarShowTitle.key ->
+                settingsRepository[SharedPrefsItem.CommentThreadNavToolbarShowTitle]
+
             PreferenceKey.EnableLoginDelegation.key -> settingsRepository[SharedPrefsItem.EnableLoginDelegation]
             PreferenceKey.LoggerView.key -> settingsRepository[SharedPrefsItem.ShowLogger]
+            PreferenceKey.EnableReactions.key -> settingsRepository[SharedPrefsItem.EnableReactions]
             else -> defValue
         }
 }

@@ -48,6 +48,10 @@ interface SettingsVMInputs {
     // Conversation
     fun onConversationStyleChanged(style: String)
     fun onConversationSpacingStyleChanged(style: String)
+
+    // Navigation toolbar
+    fun onConversationNavToolbarStyleChanged(style: String)
+    fun onCommentThreadNavToolbarStyleChanged(style: String)
 }
 
 interface SettingsVMOutputs {
@@ -117,7 +121,11 @@ class SettingsVM(
                 openweb.sample.ui.model.ConversationStyle.Custom,
             conversationSpacingCustomFieldsEnabled = currentConvStyle.style ==
                 openweb.sample.ui.model.ConversationStyle.Custom &&
-                currentConvStyle.conversationSpacingStyle == openweb.sample.ui.model.ConversationStyle.Custom
+                currentConvStyle.conversationSpacingStyle == openweb.sample.ui.model.ConversationStyle.Custom,
+            conversationNavToolbarCustomOptionsEnabled =
+            settingsRepository[SharedPrefsItem.ConversationNavToolbarStyle] == "Custom",
+            commentThreadNavToolbarCustomOptionsEnabled =
+            settingsRepository[SharedPrefsItem.CommentThreadNavToolbarStyle] == "Custom"
         )
     }
 
@@ -299,6 +307,18 @@ class SettingsVM(
         val isConvCustom = _enabledState.value.conversationCustomOptionsEnabled
         _enabledState.value = _enabledState.value.copy(
             conversationSpacingCustomFieldsEnabled = isConvCustom && isCustomSpacing
+        )
+    }
+
+    override fun onConversationNavToolbarStyleChanged(style: String) {
+        _enabledState.value = _enabledState.value.copy(
+            conversationNavToolbarCustomOptionsEnabled = style == "Custom"
+        )
+    }
+
+    override fun onCommentThreadNavToolbarStyleChanged(style: String) {
+        _enabledState.value = _enabledState.value.copy(
+            commentThreadNavToolbarCustomOptionsEnabled = style == "Custom"
         )
     }
 }

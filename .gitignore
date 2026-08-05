@@ -25,3 +25,6 @@ sentry.properties
 # Python bytecode (scripts/)
 __pycache__/
 *.pyc
+
+# Local signing secrets (never commit — see keystore.properties.template)
+keystore.properties

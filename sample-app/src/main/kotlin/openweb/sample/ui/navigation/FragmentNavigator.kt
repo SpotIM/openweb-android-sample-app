@@ -1,6 +1,7 @@
 package openweb.sample.ui.navigation
 
 import openweb.sample.ui.model.OWComponentToDisplay
+import openweb.sample.ui.screens.screensmenu.model.ApiSurface
 import openweb.sample.ui.screens.screensmenu.model.NavigationOption
 import openweb.sample.ui.screens.settings.SettingsScreen
 import spotIm.common.api.helpers.OWPostId
@@ -119,6 +120,29 @@ interface FragmentNavigator {
      * Navigate to the vertical demo screen (Compose).
      */
     fun navigateToVerticalDemo() = Unit
+
+    /**
+     * Navigate to the reactions demo screen (standalone widget). The [apiSurface] selects which
+     * single public surface the standalone widget uses: components `getReactions` (FRAGMENT) or
+     * the Compose `Reactions` composable (COMPOSE).
+     */
+    fun navigateToReactionsDemo(apiSurface: ApiSurface) = Unit
+
+    /**
+     * Navigate to the reactions RecyclerView feed screen.
+     */
+    fun navigateToReactionsFeed() = Unit
+
+    /**
+     * Navigate to the reactions ViewPager2 screen: one page per post id, each hosting the
+     * components `getReactions` View surface, to exercise page detach/reattach.
+     */
+    fun navigateToReactionsViewPager() = Unit
+
+    /**
+     * Navigate to the reactions demo second screen (navigate-away-and-back).
+     */
+    fun navigateToReactionsSecondScreen() = Unit
 
     /**
      * Navigate to the mock article screen.

@@ -13,6 +13,7 @@ import openweb.sample.utils.initialization.SpotImInitializer
 
 interface SiderailVerticalScreenVMInputs {
     fun onImplementationInfoClicked()
+    fun onReactionsClicked()
     fun onDrawerToggle()
     fun initializeBeforeFragment()
     fun onScreenResumed()
@@ -50,6 +51,9 @@ class SiderailVerticalScreenVM(
 
     override fun onImplementationInfoClicked() =
         _uiState.update { it.copy(implementationInfoExpanded = !_uiState.value.implementationInfoExpanded) }
+
+    override fun onReactionsClicked() =
+        _uiState.update { it.copy(reactionsExpanded = !_uiState.value.reactionsExpanded) }
 
     override fun onDrawerToggle() = _uiState.update { it.copy(isDrawerOpen = !_uiState.value.isDrawerOpen) }
 

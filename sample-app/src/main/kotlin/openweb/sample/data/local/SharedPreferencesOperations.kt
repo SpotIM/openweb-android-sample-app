@@ -126,6 +126,33 @@ interface SharedPreferencesOperations {
     fun setEnablePullToRefresh(enable: Boolean)
     fun getEnablePullToRefresh(): Boolean
 
+    fun setConversationNavToolbarStyle(style: String)
+    fun getConversationNavToolbarStyle(): String
+
+    fun setCommentThreadNavToolbarStyle(style: String)
+    fun getCommentThreadNavToolbarStyle(): String
+
+    fun setCommentThreadNavToolbarShowTitle(show: Boolean)
+    fun getCommentThreadNavToolbarShowTitle(): Boolean
+
+    fun setCommentThreadNavBackButtonStyle(style: String)
+    fun getCommentThreadNavBackButtonStyle(): String
+
+    fun setNavToolbarShowTitle(show: Boolean)
+    fun getNavToolbarShowTitle(): Boolean
+
+    fun setNavBackButtonStyle(style: String)
+    fun getNavBackButtonStyle(): String
+
+    fun setPreConversationHeaderStyle(style: String)
+    fun getPreConversationHeaderStyle(): String
+
     fun getProfileUrlPath(): String?
     fun setProfileUrlPath(urlPath: String?)
+
+    fun setEnableReactions(enable: Boolean)
+    fun getEnableReactions(): Boolean
+
+    fun setReactionsThemeName(themeName: String)
+    fun getReactionsThemeName(): String
 }

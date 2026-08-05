@@ -10,6 +10,9 @@ import spotIm.common.api.model.localization.OWLocaleStrategy
 import spotIm.common.api.model.localization.OWSupportedLanguage
 import spotIm.common.api.model.settings.article.OWReadOnlyMode
 import spotIm.common.api.model.settings.commentcreation.styles.OWCommentCreationStyle
+import spotIm.common.api.model.settings.navigation.OWNavigationBackButtonStyle
+import spotIm.common.api.model.settings.navigation.OWNavigationToolbarStyle
+import spotIm.common.api.model.settings.preconversation.style.OWPreConversationHeaderStyle
 import spotIm.common.internal.model.override.EndpointOverride
 import spotIm.common.internal.model.settings.OWEnvironment
 import openweb.sample.data.repository.SettingsRepository
@@ -212,6 +215,41 @@ sealed class SharedPrefsItem<T>(val key: String, val defaultValue: T) {
         defaultValue = true
     )
 
+    data object ConversationNavToolbarStyle : SharedPrefsItem<String>(
+        key = PreferenceKey.ConvNavToolbarStyle.key,
+        defaultValue = OWNavigationToolbarStyle.Regular.toString()
+    )
+
+    data object CommentThreadNavToolbarStyle : SharedPrefsItem<String>(
+        key = PreferenceKey.CommentThreadNavToolbarStyle.key,
+        defaultValue = OWNavigationToolbarStyle.Regular.toString()
+    )
+
+    data object CommentThreadNavToolbarShowTitle : SharedPrefsItem<Boolean>(
+        key = PreferenceKey.CommentThreadNavToolbarShowTitle.key,
+        defaultValue = true
+    )
+
+    data object CommentThreadNavBackButtonStyle : SharedPrefsItem<String>(
+        key = PreferenceKey.CommentThreadNavBackButtonStyle.key,
+        defaultValue = OWNavigationBackButtonStyle.BackArrow.toString()
+    )
+
+    data object NavToolbarShowTitle : SharedPrefsItem<Boolean>(
+        key = PreferenceKey.NavToolbarShowTitle.key,
+        defaultValue = true
+    )
+
+    data object NavBackButtonStyle : SharedPrefsItem<String>(
+        key = PreferenceKey.NavBackButtonStyle.key,
+        defaultValue = OWNavigationBackButtonStyle.BackArrow.toString()
+    )
+
+    data object PreConversationHeaderStyle : SharedPrefsItem<String>(
+        key = PreferenceKey.PreConvHeaderStyle.key,
+        defaultValue = OWPreConversationHeaderStyle.Regular.toString()
+    )
+
     data object EnableLoginDelegation : SharedPrefsItem<Boolean>(
         key = PreferenceKey.EnableLoginDelegation.key,
         defaultValue = BuildUtils.isInternalBuild()
@@ -220,5 +258,15 @@ sealed class SharedPrefsItem<T>(val key: String, val defaultValue: T) {
     data object ProfileUrlPath : SharedPrefsItem<String?>(
         key = PreferenceKey.ProfileUrlPath.key,
         defaultValue = null
+    )
+
+    data object EnableReactions : SharedPrefsItem<Boolean>(
+        key = PreferenceKey.EnableReactions.key,
+        defaultValue = false
+    )
+
+    data object ReactionsThemeName : SharedPrefsItem<String>(
+        key = PreferenceKey.ReactionsThemeName.key,
+        defaultValue = "default"
     )
 }

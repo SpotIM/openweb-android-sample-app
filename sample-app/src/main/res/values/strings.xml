@@ -124,12 +124,15 @@
     <!-- UI Components screen -->
     <string name="ui_components_btn_pre_conversation" translatable="false">Pre-Conversation</string>
     <string name="ui_components_btn_conversation" translatable="false">Conversation</string>
+    <string name="ui_components_btn_reactions" translatable="false">Reactions</string>
     <string name="ui_components_label_navigation_mode" translatable="false">Navigation Mode</string>
     <string name="ui_components_nav_full_screen" translatable="false">Full Screen</string>
     <string name="ui_components_nav_custom" translatable="false">Custom</string>
     <string name="ui_components_label_conversation_route" translatable="false">Conversation Route</string>
     <string name="ui_components_label_comment_id" translatable="false">Comment ID</string>
     <string name="ui_components_hint_comment_id" translatable="false">Enter Comment ID</string>
+    <string name="ui_components_label_reactions_theme" translatable="false">Reactions Theme</string>
+    <string name="ui_components_hint_reactions_theme" translatable="false">Theme name (optional)</string>
     <!-- Preview-only labels for RadioButtons replaced at runtime -->
     <string name="ui_components_route_none" translatable="false">None</string>
     <string name="ui_components_route_thread" translatable="false">Thread</string>
@@ -164,5 +167,24 @@
     <!-- UI Components action cards (Pre-Conversation / Conversation) -->
     <string name="ui_components_pre_conversation_desc" translatable="false">Open the collapsed teaser</string>
     <string name="ui_components_conversation_desc" translatable="false">Open the full discussion view</string>
+    <string name="ui_components_reactions_desc" translatable="false">Open the standalone reactions demo</string>
+
+    <!-- Reactions demo (internal) -->
+    <string name="reactions_demo_title" translatable="false">Reactions Demo</string>
+    <string name="reactions_demo_standalone_title" translatable="false">Standalone Reactions</string>
+    <string name="reactions_demo_nav_label" translatable="false">Navigation</string>
+    <string name="reactions_demo_standalone_desc" translatable="false">The widget below stays attached while you scroll it out of view and back. Configure Post ID and theme under Settings · Article.</string>
+    <string name="reactions_demo_btn_feed" translatable="false">Open Reactions Feed (RecyclerView)</string>
+    <string name="reactions_demo_btn_second_screen" translatable="false">Navigate Away &amp; Back</string>
+    <string name="reactions_demo_btn_view_pager" translatable="false">Open ViewPager (View API)</string>
+    <string name="reactions_demo_view_pager_title" translatable="false">Reactions ViewPager</string>
+    <string name="reactions_demo_view_pager_page" translatable="false">Page %1$d of %2$d</string>
+    <string name="reactions_demo_feed_title" translatable="false">Reactions Feed</string>
+    <string name="reactions_demo_second_screen_title" translatable="false">Second Screen</string>
+    <string name="reactions_demo_second_screen_text" translatable="false">Press back to return to the reactions screen. The standalone widget should restore from cache and server.</string>
+    <string name="reactions_demo_feed_row_post_id" translatable="false">Post: %1$s</string>
+    <string name="reactions_demo_missing_post_id" translatable="false">Set a Post ID under Settings · Article to load reactions.</string>
+    <string name="reactions_demo_components_label" translatable="false">Components API · getReactions()</string>
+    <string name="reactions_demo_compose_label" translatable="false">Compose API · Reactions()</string>
 
 </resources>

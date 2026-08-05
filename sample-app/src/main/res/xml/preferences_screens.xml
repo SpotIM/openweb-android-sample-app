@@ -44,6 +44,16 @@
             app:summary="Choose community questions display style"
             app:title="Community Questions Style" />
 
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:contentDescriptionPrefix="PreConversation"
+            app:defaultValue="Regular"
+            app:entries="@array/pre_conversation_header_style_entries"
+            app:entryValues="@array/pre_conversation_header_style_values"
+            app:iconSpaceReserved="false"
+            app:key="pre_conversation_header_style"
+            app:summary="Hide the header row or only its title"
+            app:title="Header Style" />
+
     </PreferenceCategory>
 
     <PreferenceCategory app:title="Conversation">
@@ -112,6 +122,33 @@
             app:summary="Spacing in pixels (5-40)"
             app:title="Questions Spacing" />
 
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:contentDescriptionPrefix="Conversation"
+            app:defaultValue="Regular"
+            app:entries="@array/nav_toolbar_style_entries"
+            app:entryValues="@array/nav_toolbar_style_values"
+            app:iconSpaceReserved="false"
+            app:key="conversation_nav_toolbar_style"
+            app:summary="Hide the navigation toolbar or configure its elements"
+            app:title="Navigation Toolbar Style" />
+
+        <!-- Applied when Custom navigation toolbar style is selected -->
+        <SwitchPreferenceCompat
+            app:defaultValue="true"
+            app:iconSpaceReserved="false"
+            app:key="nav_toolbar_show_title"
+            app:summary="Show the toolbar title (Custom toolbar style only)"
+            app:title="Show Toolbar Title" />
+
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:defaultValue="BackArrow"
+            app:entries="@array/nav_back_button_style_entries"
+            app:entryValues="@array/nav_back_button_style_values"
+            app:iconSpaceReserved="false"
+            app:key="nav_back_button_style"
+            app:summary="Back button appearance (Custom toolbar style only)"
+            app:title="Back Button Style" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -139,6 +176,34 @@
             app:key="comment_thread_id"
             app:summary="ID of the comment to open in thread view"
             app:title="Comment Thread ID" />
+
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:contentDescriptionPrefix="CommentThread"
+            app:defaultValue="Regular"
+            app:entries="@array/nav_toolbar_style_entries"
+            app:entryValues="@array/nav_toolbar_style_values"
+            app:iconSpaceReserved="false"
+            app:key="comment_thread_nav_toolbar_style"
+            app:summary="Hide the navigation toolbar or configure its elements"
+            app:title="Navigation Toolbar Style" />
+
+        <!-- Applied when Custom navigation toolbar style is selected -->
+        <SwitchPreferenceCompat
+            app:defaultValue="true"
+            app:iconSpaceReserved="false"
+            app:key="comment_thread_nav_toolbar_show_title"
+            app:summary="Show the toolbar title (Custom toolbar style only)"
+            app:title="Show Toolbar Title" />
+
+        <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+            app:contentDescriptionPrefix="CommentThread"
+            app:defaultValue="BackArrow"
+            app:entries="@array/nav_back_button_style_entries"
+            app:entryValues="@array/nav_back_button_style_values"
+            app:iconSpaceReserved="false"
+            app:key="comment_thread_nav_back_button_style"
+            app:summary="Back button appearance (Custom toolbar style only)"
+            app:title="Back Button Style" />
 
     </PreferenceCategory>
 

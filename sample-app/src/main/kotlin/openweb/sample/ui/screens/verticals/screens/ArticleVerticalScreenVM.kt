@@ -13,6 +13,7 @@ import openweb.sample.utils.initialization.SpotImInitializer
 
 interface ArticleVerticalScreenVMInputs {
     fun onImplementationInfoClicked()
+    fun onReactionsClicked()
     fun initializeBeforeFragment()
     fun onScreenResumed()
     fun buildConversationParams(): ConversationParams
@@ -51,6 +52,10 @@ class ArticleVerticalScreenVM(
 
     override fun onImplementationInfoClicked() {
         _uiState.update { it.copy(implementationInfoExpanded = !_uiState.value.implementationInfoExpanded) }
+    }
+
+    override fun onReactionsClicked() {
+        _uiState.update { it.copy(reactionsExpanded = !_uiState.value.reactionsExpanded) }
     }
 
     override fun initializeBeforeFragment() {

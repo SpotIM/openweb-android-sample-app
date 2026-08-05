@@ -23,5 +23,9 @@ data class PreferenceEnabledState(
     val conversationCustomOptionsEnabled: Boolean = false,
 
     // Conversation preferences (level 2 - spacing)
-    val conversationSpacingCustomFieldsEnabled: Boolean = false
+    val conversationSpacingCustomFieldsEnabled: Boolean = false,
+
+    // Navigation toolbar preferences (per screen)
+    val conversationNavToolbarCustomOptionsEnabled: Boolean = false,
+    val commentThreadNavToolbarCustomOptionsEnabled: Boolean = false
 )

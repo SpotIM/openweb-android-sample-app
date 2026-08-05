@@ -54,12 +54,19 @@ sealed class PreferenceKey(val key: String) {
     data object PreConvNumComments : PreferenceKey("pre_conversation_num_comments")
     data object PreConvGuidelinesStyle : PreferenceKey("pre_conversation_guidelines_style")
     data object PreConvQuestionsStyle : PreferenceKey("pre_conversation_questions_style")
+    data object PreConvHeaderStyle : PreferenceKey("pre_conversation_header_style")
     data object PreConversationSettings : PreferenceKey("preConversationSettings")
 
     // Screens - Conversation
     data object ConvStyle : PreferenceKey("conversation_style")
     data object ConvGuidelinesStyle : PreferenceKey("conversation_guidelines_style")
     data object ConvQuestionsStyle : PreferenceKey("conversation_questions_style")
+    data object ConvNavToolbarStyle : PreferenceKey("conversation_nav_toolbar_style")
+    data object NavToolbarShowTitle : PreferenceKey("nav_toolbar_show_title")
+    data object NavBackButtonStyle : PreferenceKey("nav_back_button_style")
+    data object CommentThreadNavToolbarStyle : PreferenceKey("comment_thread_nav_toolbar_style")
+    data object CommentThreadNavToolbarShowTitle : PreferenceKey("comment_thread_nav_toolbar_show_title")
+    data object CommentThreadNavBackButtonStyle : PreferenceKey("comment_thread_nav_back_button_style")
     data object ConvSpacingStyle : PreferenceKey("conversation_spacing_style")
     data object ConvSpacingBetweenComments : PreferenceKey("conversation_spacing_between_comments")
     data object ConvSpacingGuidelines : PreferenceKey("conversation_spacing_guidelines")
@@ -88,4 +95,6 @@ sealed class PreferenceKey(val key: String) {
     data object HideArticleHeader : PreferenceKey("hide_article_header")
     data object EnableSocialReviews : PreferenceKey("enable_social_reviews")
     data object EnablePullToRefresh : PreferenceKey("enable_pull_to_refresh")
+    data object EnableReactions : PreferenceKey("enable_reactions")
+    data object ReactionsThemeName : PreferenceKey("reactions_theme_name")
 }

@@ -23,6 +23,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import openweb.sample.ui.screens.verticals.components.article.ConversationContainer
 import openweb.sample.ui.screens.verticals.components.article.ImplementationInfoCard
+import openweb.sample.ui.screens.verticals.components.article.ReactionsCard
 import openweb.sample.ui.screens.verticals.components.article.SportScoreboard
 import openweb.sample.ui.screens.verticals.components.article.VerticalTopAppBar
 import openweb.sample.ui.screens.verticals.model.VerticalMockData
@@ -99,6 +100,16 @@ fun SportVerticalScreen(
                         info = mockData.implementationInfo,
                         expanded = uiState.implementationInfoExpanded,
                         onToggle = { viewModel.inputs.onImplementationInfoClicked() },
+                        iconColor = mockData.color
+                    )
+                }
+
+                item {
+                    ReactionsCard(
+                        postId = mockData.article.conversationIds.postId,
+                        themeName = mockData.title,
+                        expanded = uiState.reactionsExpanded,
+                        onToggle = { viewModel.inputs.onReactionsClicked() },
                         iconColor = mockData.color
                     )
                 }

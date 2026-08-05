@@ -50,4 +50,20 @@
         app:summary="Allow users to add social review ratings"
         app:title="Enable Social Reviews" />
 
+    <SwitchPreferenceCompat
+        app:defaultValue="false"
+        app:iconSpaceReserved="false"
+        app:isPreferenceVisible="@bool/is_internal_build"
+        app:key="enable_reactions"
+        app:summary="Enable the reactions widget demo"
+        app:title="Enable Reactions" />
+
+    <openweb.sample.ui.screens.settings.preference.InlineEditTextPreference
+        app:defaultValue="default"
+        app:iconSpaceReserved="false"
+        app:isPreferenceVisible="@bool/is_internal_build"
+        app:key="reactions_theme_name"
+        app:summary="Theme name passed to getReactions (defaults to &quot;default&quot;)"
+        app:title="Reactions Theme Name" />
+
 </PreferenceScreen>

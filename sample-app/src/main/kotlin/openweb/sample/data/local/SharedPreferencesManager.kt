@@ -349,6 +349,83 @@ class SharedPreferencesManager(context: Context) : SharedPreferencesOperations {
         urlPath
     )
 
+    override fun getEnableReactions(): Boolean = getValue<Boolean>(SharedPrefsItem.EnableReactions.key)
+        ?: SharedPrefsItem.EnableReactions.defaultValue
+
+    override fun setEnableReactions(enable: Boolean) = setValue<Boolean>(
+        SharedPrefsItem.EnableReactions.key,
+        enable
+    )
+
+    override fun getReactionsThemeName(): String = getValue<String>(SharedPrefsItem.ReactionsThemeName.key)
+        ?: SharedPrefsItem.ReactionsThemeName.defaultValue
+
+    override fun setReactionsThemeName(themeName: String) = setValue<String>(
+        SharedPrefsItem.ReactionsThemeName.key,
+        themeName
+    )
+
+    override fun getConversationNavToolbarStyle(): String =
+        getValue<String>(SharedPrefsItem.ConversationNavToolbarStyle.key)
+            ?: SharedPrefsItem.ConversationNavToolbarStyle.defaultValue
+
+    override fun setConversationNavToolbarStyle(style: String) = setValue<String>(
+        SharedPrefsItem.ConversationNavToolbarStyle.key,
+        style
+    )
+
+    override fun getCommentThreadNavToolbarStyle(): String =
+        getValue<String>(SharedPrefsItem.CommentThreadNavToolbarStyle.key)
+            ?: SharedPrefsItem.CommentThreadNavToolbarStyle.defaultValue
+
+    override fun setCommentThreadNavToolbarStyle(style: String) = setValue<String>(
+        SharedPrefsItem.CommentThreadNavToolbarStyle.key,
+        style
+    )
+
+    override fun getCommentThreadNavToolbarShowTitle(): Boolean =
+        getValue<Boolean>(SharedPrefsItem.CommentThreadNavToolbarShowTitle.key)
+            ?: SharedPrefsItem.CommentThreadNavToolbarShowTitle.defaultValue
+
+    override fun setCommentThreadNavToolbarShowTitle(show: Boolean) = setValue<Boolean>(
+        SharedPrefsItem.CommentThreadNavToolbarShowTitle.key,
+        show
+    )
+
+    override fun getCommentThreadNavBackButtonStyle(): String =
+        getValue<String>(SharedPrefsItem.CommentThreadNavBackButtonStyle.key)
+            ?: SharedPrefsItem.CommentThreadNavBackButtonStyle.defaultValue
+
+    override fun setCommentThreadNavBackButtonStyle(style: String) = setValue<String>(
+        SharedPrefsItem.CommentThreadNavBackButtonStyle.key,
+        style
+    )
+
+    override fun getNavToolbarShowTitle(): Boolean = getValue<Boolean>(SharedPrefsItem.NavToolbarShowTitle.key)
+        ?: SharedPrefsItem.NavToolbarShowTitle.defaultValue
+
+    override fun setNavToolbarShowTitle(show: Boolean) = setValue<Boolean>(
+        SharedPrefsItem.NavToolbarShowTitle.key,
+        show
+    )
+
+    override fun getNavBackButtonStyle(): String = getValue<String>(SharedPrefsItem.NavBackButtonStyle.key)
+        ?: SharedPrefsItem.NavBackButtonStyle.defaultValue
+
+    override fun setNavBackButtonStyle(style: String) = setValue<String>(
+        SharedPrefsItem.NavBackButtonStyle.key,
+        style
+    )
+
+    override fun getPreConversationHeaderStyle(): String =
+        getValue<String>(SharedPrefsItem.PreConversationHeaderStyle.key)
+            ?: SharedPrefsItem.PreConversationHeaderStyle.defaultValue
+
+    override fun setPreConversationHeaderStyle(style: String) = setValue<String>(
+        SharedPrefsItem.PreConversationHeaderStyle.key,
+        style
+    )
+
     fun <T> getItem(item: SharedPrefsItem<T>): T? {
         return when (item) {
             is SharedPrefsItem.ArticleAssociatedUrl -> getArticleAssociatedUrl() as T
@@ -384,8 +461,17 @@ class SharedPreferencesManager(context: Context) : SharedPreferencesOperations {
             is SharedPrefsItem.EndpointOverrides -> getEndpointOverrides() as T
             is SharedPrefsItem.InitialSortOption -> getInitialSortOption() as T
             is SharedPrefsItem.EnablePullToRefresh -> getEnablePullToRefresh() as T
+            is SharedPrefsItem.ConversationNavToolbarStyle -> getConversationNavToolbarStyle() as T
+            is SharedPrefsItem.CommentThreadNavToolbarStyle -> getCommentThreadNavToolbarStyle() as T
+            is SharedPrefsItem.CommentThreadNavToolbarShowTitle -> getCommentThreadNavToolbarShowTitle() as T
+            is SharedPrefsItem.CommentThreadNavBackButtonStyle -> getCommentThreadNavBackButtonStyle() as T
+            is SharedPrefsItem.NavToolbarShowTitle -> getNavToolbarShowTitle() as T
+            is SharedPrefsItem.NavBackButtonStyle -> getNavBackButtonStyle() as T
+            is SharedPrefsItem.PreConversationHeaderStyle -> getPreConversationHeaderStyle() as T
             is SharedPrefsItem.ProfileUrlPath -> getProfileUrlPath() as T
             is SharedPrefsItem.MockSSOEnvironment -> getMockSSOEnvironment() as T
+            is SharedPrefsItem.EnableReactions -> getEnableReactions() as T
+            is SharedPrefsItem.ReactionsThemeName -> getReactionsThemeName() as T
         }
     }
 
@@ -433,8 +519,17 @@ class SharedPreferencesManager(context: Context) : SharedPreferencesOperations {
             is SharedPrefsItem.EndpointOverrides -> setEndpointOverrides(value as? List<EndpointOverride>)
             is SharedPrefsItem.InitialSortOption -> setInitialSortOption(value as? OWSortOption)
             is SharedPrefsItem.EnablePullToRefresh -> setEnablePullToRefresh(value as Boolean)
+            is SharedPrefsItem.ConversationNavToolbarStyle -> setConversationNavToolbarStyle(value as String)
+            is SharedPrefsItem.CommentThreadNavToolbarStyle -> setCommentThreadNavToolbarStyle(value as String)
+            is SharedPrefsItem.CommentThreadNavToolbarShowTitle -> setCommentThreadNavToolbarShowTitle(value as Boolean)
+            is SharedPrefsItem.CommentThreadNavBackButtonStyle -> setCommentThreadNavBackButtonStyle(value as String)
+            is SharedPrefsItem.NavToolbarShowTitle -> setNavToolbarShowTitle(value as Boolean)
+            is SharedPrefsItem.NavBackButtonStyle -> setNavBackButtonStyle(value as String)
+            is SharedPrefsItem.PreConversationHeaderStyle -> setPreConversationHeaderStyle(value as String)
             is SharedPrefsItem.ProfileUrlPath -> setProfileUrlPath(value as? String)
             is SharedPrefsItem.MockSSOEnvironment -> setMockSSOEnvironment(value as OWEnvironment)
+            is SharedPrefsItem.EnableReactions -> setEnableReactions(value as Boolean)
+            is SharedPrefsItem.ReactionsThemeName -> setReactionsThemeName(value as String)
         }
     }
 

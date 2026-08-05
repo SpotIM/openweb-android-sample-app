@@ -7,7 +7,10 @@ import spotIm.common.api.model.settings.commentthread.OWCommentThreadSettings
 import spotIm.common.api.model.settings.conversation.OWConversationSettings
 import spotIm.common.api.model.settings.conversation.style.OWConversationSpacing
 import spotIm.common.api.model.settings.conversation.style.OWConversationStyle
+import spotIm.common.api.model.settings.navigation.OWNavigationBackButtonStyle
+import spotIm.common.api.model.settings.navigation.OWNavigationToolbarStyle
 import spotIm.common.api.model.settings.preconversation.OWPreConversationSettings
+import spotIm.common.api.model.settings.preconversation.style.OWPreConversationHeaderStyle
 import spotIm.common.api.model.settings.preconversation.style.OWPreConversationStyle
 import openweb.sample.data.repository.SettingsRepository
 import openweb.sample.ui.model.ConversationSettingsModel
@@ -30,14 +33,29 @@ class OWScreenStyleProvider(
         )
     }
 
-    fun providePreConversationSettings() = OWPreConversationSettings(preConversationStyle = getPreConversationStyle())
+    fun providePreConversationSettings() = OWPreConversationSettings(
+        preConversationStyle = getPreConversationStyle(),
+        preConversationHeaderStyle = getPreConversationHeaderStyle()
+    )
 
     fun provideConversationSettings() = OWConversationSettings(
         conversationStyle = getConversationStyle(),
-        allowPullToRefresh = getEnablePullToRefresh()
+        allowPullToRefresh = getEnablePullToRefresh(),
+        navigationToolbarStyle = getNavigationToolbarStyle(
+            styleItem = SharedPrefsItem.ConversationNavToolbarStyle,
+            showTitleItem = SharedPrefsItem.NavToolbarShowTitle,
+            backButtonItem = SharedPrefsItem.NavBackButtonStyle
+        )
     )
 
-    fun provideCommentThreadSettings() = OWCommentThreadSettings(allowPullToRefresh = getEnablePullToRefresh())
+    fun provideCommentThreadSettings() = OWCommentThreadSettings(
+        allowPullToRefresh = getEnablePullToRefresh(),
+        navigationToolbarStyle = getNavigationToolbarStyle(
+            styleItem = SharedPrefsItem.CommentThreadNavToolbarStyle,
+            showTitleItem = SharedPrefsItem.CommentThreadNavToolbarShowTitle,
+            backButtonItem = SharedPrefsItem.CommentThreadNavBackButtonStyle
+        )
+    )
 
     fun provideCommentCreationSettings() = OWCommentCreationSettings(commentCreationStyle = getCommentCreationStyle())
 
@@ -101,4 +119,33 @@ class OWScreenStyleProvider(
         settingsRepository[SharedPrefsItem.ConversationStyle]
 
     private fun getEnablePullToRefresh(): Boolean = settingsRepository[SharedPrefsItem.EnablePullToRefresh]
+
+    private fun getNavigationToolbarStyle(
+        styleItem: SharedPrefsItem<String>,
+        showTitleItem: SharedPrefsItem<Boolean>,
+        backButtonItem: SharedPrefsItem<String>
+    ): OWNavigationToolbarStyle =
+        when (settingsRepository[styleItem]) {
+            OWNavigationToolbarStyle.None.toString() -> OWNavigationToolbarStyle.None
+            "Custom" -> OWNavigationToolbarStyle.Custom(
+                showTitle = settingsRepository[showTitleItem],
+                backButtonStyle = getNavBackButtonStyle(backButtonItem)
+            )
+
+            else -> OWNavigationToolbarStyle.Regular
+        }
+
+    private fun getNavBackButtonStyle(backButtonItem: SharedPrefsItem<String>): OWNavigationBackButtonStyle =
+        when (settingsRepository[backButtonItem]) {
+            OWNavigationBackButtonStyle.Close.toString() -> OWNavigationBackButtonStyle.Close
+            OWNavigationBackButtonStyle.None.toString() -> OWNavigationBackButtonStyle.None
+            else -> OWNavigationBackButtonStyle.BackArrow
+        }
+
+    private fun getPreConversationHeaderStyle(): OWPreConversationHeaderStyle =
+        when (settingsRepository[SharedPrefsItem.PreConversationHeaderStyle]) {
+            OWPreConversationHeaderStyle.None.toString() -> OWPreConversationHeaderStyle.None
+            "HiddenTitle" -> OWPreConversationHeaderStyle.Custom(showTitle = false)
+            else -> OWPreConversationHeaderStyle.Regular
+        }
 }
