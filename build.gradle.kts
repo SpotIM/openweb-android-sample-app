@@ -30,10 +30,10 @@ plugins {
 }
 
 // Project version properties
-extra["sample_version_name"] = "3.2.0.1"
+extra["sample_version_name"] = "3.2.0.4"
 extra["sdk_version_name"] = "3.2.0"
 extra["rn_sdk_version_name"] = "3.2.0"
-extra["build_number"] = 129
+extra["build_number"] = 132
 
 // Signing secrets: keystore.properties (gitignored) first, then findProperty
 // (gradle.properties / ~/.gradle / -P / ORG_GRADLE_PROJECT_*). Absent -> null.

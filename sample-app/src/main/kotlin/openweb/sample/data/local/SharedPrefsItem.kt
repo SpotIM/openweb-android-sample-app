@@ -265,6 +265,13 @@ sealed class SharedPrefsItem<T>(val key: String, val defaultValue: T) {
         defaultValue = false
     )
 
+    // When true, the sample-app does NOT register a renewSSO authenticator, so the SDK
+    // has to handle SSO token renewal itself (used to test that SDK code path).
+    data object SkipRenewSSOImplementation : SharedPrefsItem<Boolean>(
+        key = PreferenceKey.SkipRenewSSOImplementation.key,
+        defaultValue = false
+    )
+
     data object ReactionsThemeName : SharedPrefsItem<String>(
         key = PreferenceKey.ReactionsThemeName.key,
         defaultValue = "default"

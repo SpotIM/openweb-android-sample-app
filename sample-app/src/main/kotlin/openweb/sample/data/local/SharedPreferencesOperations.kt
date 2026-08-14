@@ -155,4 +155,7 @@ interface SharedPreferencesOperations {
 
     fun setReactionsThemeName(themeName: String)
     fun getReactionsThemeName(): String
+
+    fun setSkipRenewSSOImplementation(skip: Boolean)
+    fun getSkipRenewSSOImplementation(): Boolean
 }

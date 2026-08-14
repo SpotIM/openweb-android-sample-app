@@ -365,6 +365,15 @@ class SharedPreferencesManager(context: Context) : SharedPreferencesOperations {
         themeName
     )
 
+    override fun getSkipRenewSSOImplementation(): Boolean =
+        getValue<Boolean>(SharedPrefsItem.SkipRenewSSOImplementation.key)
+            ?: SharedPrefsItem.SkipRenewSSOImplementation.defaultValue
+
+    override fun setSkipRenewSSOImplementation(skip: Boolean) = setValue<Boolean>(
+        SharedPrefsItem.SkipRenewSSOImplementation.key,
+        skip
+    )
+
     override fun getConversationNavToolbarStyle(): String =
         getValue<String>(SharedPrefsItem.ConversationNavToolbarStyle.key)
             ?: SharedPrefsItem.ConversationNavToolbarStyle.defaultValue
@@ -472,6 +481,7 @@ class SharedPreferencesManager(context: Context) : SharedPreferencesOperations {
             is SharedPrefsItem.MockSSOEnvironment -> getMockSSOEnvironment() as T
             is SharedPrefsItem.EnableReactions -> getEnableReactions() as T
             is SharedPrefsItem.ReactionsThemeName -> getReactionsThemeName() as T
+            is SharedPrefsItem.SkipRenewSSOImplementation -> getSkipRenewSSOImplementation() as T
         }
     }
 
@@ -530,6 +540,7 @@ class SharedPreferencesManager(context: Context) : SharedPreferencesOperations {
             is SharedPrefsItem.MockSSOEnvironment -> setMockSSOEnvironment(value as OWEnvironment)
             is SharedPrefsItem.EnableReactions -> setEnableReactions(value as Boolean)
             is SharedPrefsItem.ReactionsThemeName -> setReactionsThemeName(value as String)
+            is SharedPrefsItem.SkipRenewSSOImplementation -> setSkipRenewSSOImplementation(value as Boolean)
         }
     }
 

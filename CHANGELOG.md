@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.2.0] - 2026-08-13
+### New Features
+- Reactions: A new poll-style Reactions widget that lets readers react to your content and see results update live. It sits alongside the conversation as a lightweight engagement surface, with server-driven theming and built-in login handling for gated posts.
+### API & SDK Changes
+- Added getReactions(...) on OpenWeb.manager.ui.components and the Reactions() composable, to embed the new Reactions widget.
+- Added OWNavigationToolbarStyle on OWConversationSettings to hide the Conversation navigation bar or its title and choose the back-button icon (back arrow, close, or hidden).
+- Added OWPreConversationHeaderStyle on OWPreConversationSettings to hide the Pre-Conversation header row or its title.
+### Bug Fixes
+- Resolved a crash that could occur when opening a comment from another app in a Jetpack Compose integration.
+- Ensured real-time replies no longer appear as new top-level comments in the live conversation view.
+- Fixed an issue where the system back button did not navigate back on the first tap after opening the login screen from a conversation.
+- Fixed an issue where the Community Guidelines and Appeal links were missing on the rejected-comment clarity screen when using a language other than English.
+- Corrected profile glitches where the avatar briefly flickered and the user badge did not appear immediately when opening a profile.
+- Fixed a flicker in the full-conversation subheader when tapping the first reply in a comment thread.
+- Fixed an issue where the nudge banner remained visible after the floating bar was collapsed in the floating conversation style.
+### Customer-Specific Fixes
+- [WSJ] Fixed an issue where the conversation could get stuck on an infinite loading state after updating from a previously installed version of the app.
+
 ## [3.1.0] - 2026-07-26
 ### New Features
 - User Profiles: Introduced a native user profile experience for viewing a user's profile, comment and reply history, and activity, with profile editing, privacy controls, muted-user management, and account data request/deletion.

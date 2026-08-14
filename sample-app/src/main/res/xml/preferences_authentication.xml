@@ -8,4 +8,12 @@
         app:defaultValue="false"
         app:iconSpaceReserved="false" />
 
+    <SwitchPreferenceCompat
+        app:key="skip_renew_sso_implementation"
+        app:title="Don't implement renewSSO()"
+        app:summary="When ON, the sample-app does not implement renewSSO(), so the SDK has to handle SSO renewal itself. When OFF, the sample-app implements it and the SDK uses it."
+        app:defaultValue="false"
+        app:isPreferenceVisible="@bool/is_internal_build"
+        app:iconSpaceReserved="false" />
+
 </PreferenceScreen>

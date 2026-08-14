@@ -88,6 +88,7 @@ sealed class PreferenceKey(val key: String) {
 
     // Authentication
     data object ShowLoginPrompt : PreferenceKey("show_login_prompt")
+    data object SkipRenewSSOImplementation : PreferenceKey("skip_renew_sso_implementation")
 
     // Other Settings
     data object CommentCreationStyle : PreferenceKey("comment_creation_style")

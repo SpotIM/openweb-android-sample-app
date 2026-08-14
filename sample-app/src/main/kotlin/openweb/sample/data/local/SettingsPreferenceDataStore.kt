@@ -285,6 +285,9 @@ class SettingsPreferenceDataStore(
             PreferenceKey.EnableLoginDelegation.key -> settingsRepository[SharedPrefsItem.EnableLoginDelegation] = value
             PreferenceKey.LoggerView.key -> settingsRepository[SharedPrefsItem.ShowLogger] = value
             PreferenceKey.EnableReactions.key -> settingsRepository[SharedPrefsItem.EnableReactions] = value
+
+            PreferenceKey.SkipRenewSSOImplementation.key ->
+                settingsRepository[SharedPrefsItem.SkipRenewSSOImplementation] = value
         }
     }
 
@@ -419,6 +422,9 @@ class SettingsPreferenceDataStore(
             PreferenceKey.EnableLoginDelegation.key -> settingsRepository[SharedPrefsItem.EnableLoginDelegation]
             PreferenceKey.LoggerView.key -> settingsRepository[SharedPrefsItem.ShowLogger]
             PreferenceKey.EnableReactions.key -> settingsRepository[SharedPrefsItem.EnableReactions]
+            PreferenceKey.SkipRenewSSOImplementation.key ->
+                settingsRepository[SharedPrefsItem.SkipRenewSSOImplementation]
+
             else -> defValue
         }
 }
