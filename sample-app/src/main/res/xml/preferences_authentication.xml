@@ -8,11 +8,27 @@
         app:defaultValue="false"
         app:iconSpaceReserved="false" />
 
-    <SwitchPreferenceCompat
-        app:key="skip_renew_sso_implementation"
-        app:title="Don't implement renewSSO()"
-        app:summary="When ON, the sample-app does not implement renewSSO(), so the SDK has to handle SSO renewal itself. When OFF, the sample-app implements it and the SDK uses it."
-        app:defaultValue="false"
+    <openweb.sample.ui.screens.settings.preference.ChipGroupPreference
+        app:key="renew_sso_mode"
+        app:title="renewSSO() Simulation Mode"
+        app:summary="Simulates different renewSSO() host behaviors to exercise the SDK's 403 recovery and SSO renewal paths"
+        app:entries="@array/renew_sso_mode_entries"
+        app:entryValues="@array/renew_sso_mode_values"
+        app:defaultValue="Normal"
+        app:isPreferenceVisible="@bool/is_internal_build"
+        app:iconSpaceReserved="false" />
+
+    <openweb.sample.ui.screens.settings.preference.ButtonPreference
+        app:key="expire_auth_token"
+        app:title="Expire Auth Token Only"
+        app:summary="Replaces the stored auth token with an expired one and leaves the refresh token valid, so the next request 403s and recovers via the refresh-token path alone"
+        app:isPreferenceVisible="@bool/is_internal_build"
+        app:iconSpaceReserved="false" />
+
+    <openweb.sample.ui.screens.settings.preference.ButtonPreference
+        app:key="expire_auth_and_refresh_tokens"
+        app:title="Expire Auth + Refresh Tokens"
+        app:summary="Replaces both stored tokens with expired ones, so the next request 403s and recovery falls through to SSO renewal"
         app:isPreferenceVisible="@bool/is_internal_build"
         app:iconSpaceReserved="false" />
 

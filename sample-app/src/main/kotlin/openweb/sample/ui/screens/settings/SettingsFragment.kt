@@ -80,7 +80,7 @@ class SettingsFragment : PreferenceFragmentCompat(), ColorPickerDialogListener {
         when (args.screen) {
             SettingsScreen.MainSettings -> setupRootPreferences()
             SettingsScreen.Customizations -> setupCustomizationsPreferences()
-            SettingsScreen.Authentication -> Unit
+            SettingsScreen.Authentication -> setupAuthenticationPreferences()
             SettingsScreen.Configurations -> setupConfigurationsPreferences()
             SettingsScreen.ArticleSettings -> setupArticlePreferences()
             SettingsScreen.ScreensSettings -> setupScreensPreferences()
@@ -197,6 +197,18 @@ class SettingsFragment : PreferenceFragmentCompat(), ColorPickerDialogListener {
 
         pref<Preference>(PreferenceKey.ElementCustomizations)?.setOnPreferenceClickListener {
             navigator.navigateToElementCustomizations()
+            true
+        }
+    }
+
+    private fun setupAuthenticationPreferences() {
+        pref<Preference>(PreferenceKey.ExpireAuthToken)?.setOnPreferenceClickListener {
+            viewModel.inputs.expireAuthTokenClicked()
+            true
+        }
+
+        pref<Preference>(PreferenceKey.ExpireAuthAndRefreshTokens)?.setOnPreferenceClickListener {
+            viewModel.inputs.expireAuthAndRefreshTokensClicked()
             true
         }
     }
@@ -318,7 +330,7 @@ class SettingsFragment : PreferenceFragmentCompat(), ColorPickerDialogListener {
         when (args.screen) {
             SettingsScreen.MainSettings -> setupRootPreferences()
             SettingsScreen.Customizations -> setupCustomizationsPreferences()
-            SettingsScreen.Authentication -> Unit
+            SettingsScreen.Authentication -> setupAuthenticationPreferences()
             SettingsScreen.Configurations -> setupConfigurationsPreferences()
             SettingsScreen.ArticleSettings -> setupArticlePreferences()
             SettingsScreen.ScreensSettings -> setupScreensPreferences()

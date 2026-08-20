@@ -16,6 +16,7 @@ import openweb.sample.ui.model.ConversationStyle
 import openweb.sample.ui.model.PreConversationStyle
 import openweb.sample.ui.screens.settings.enums.ArticleInformationStrategy
 import openweb.sample.ui.screens.settings.enums.FontFamilyType
+import openweb.sample.ui.screens.settings.enums.RenewSSOMode
 import openweb.sample.utils.PreferenceKey
 
 /**
@@ -267,6 +268,9 @@ class SettingsPreferenceDataStore(
             PreferenceKey.ReactionsThemeName.key ->
                 settingsRepository[SharedPrefsItem.ReactionsThemeName] = value.orEmpty()
 
+            PreferenceKey.RenewSSOMode.key ->
+                value?.let { settingsRepository[SharedPrefsItem.RenewSSOMode] = RenewSSOMode.valueOf(it) }
+
         }
     }
 
@@ -285,9 +289,6 @@ class SettingsPreferenceDataStore(
             PreferenceKey.EnableLoginDelegation.key -> settingsRepository[SharedPrefsItem.EnableLoginDelegation] = value
             PreferenceKey.LoggerView.key -> settingsRepository[SharedPrefsItem.ShowLogger] = value
             PreferenceKey.EnableReactions.key -> settingsRepository[SharedPrefsItem.EnableReactions] = value
-
-            PreferenceKey.SkipRenewSSOImplementation.key ->
-                settingsRepository[SharedPrefsItem.SkipRenewSSOImplementation] = value
         }
     }
 
@@ -404,6 +405,7 @@ class SettingsPreferenceDataStore(
             PreferenceKey.MockSsoEnvironment.key -> settingsRepository[SharedPrefsItem.MockSSOEnvironment].name
             PreferenceKey.ProfileUrlPath.key -> settingsRepository[SharedPrefsItem.ProfileUrlPath]
             PreferenceKey.ReactionsThemeName.key -> settingsRepository[SharedPrefsItem.ReactionsThemeName]
+            PreferenceKey.RenewSSOMode.key -> settingsRepository[SharedPrefsItem.RenewSSOMode].toString()
             else -> defValue
         }
 
@@ -422,9 +424,6 @@ class SettingsPreferenceDataStore(
             PreferenceKey.EnableLoginDelegation.key -> settingsRepository[SharedPrefsItem.EnableLoginDelegation]
             PreferenceKey.LoggerView.key -> settingsRepository[SharedPrefsItem.ShowLogger]
             PreferenceKey.EnableReactions.key -> settingsRepository[SharedPrefsItem.EnableReactions]
-            PreferenceKey.SkipRenewSSOImplementation.key ->
-                settingsRepository[SharedPrefsItem.SkipRenewSSOImplementation]
-
             else -> defValue
         }
 }

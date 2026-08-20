@@ -22,6 +22,10 @@ interface SettingsVMInputs {
     fun clearConfigButtonClicked()
     fun onResetSettingsClicked()
 
+    // Authentication
+    fun expireAuthTokenClicked()
+    fun expireAuthAndRefreshTokensClicked()
+
     // Environment
     fun onEnvironmentChanged(environment: String)
     fun onApplyEnvironmentClicked(selectedEnv: String, baseUrl: String?)
@@ -141,6 +145,16 @@ class SettingsVM(
 
     override fun clearConfigButtonClicked() {
         clearConfig()
+    }
+
+    override fun expireAuthTokenClicked() {
+        expireAuthTokens(expireRefreshToken = false)
+        _events.tryEmit(SettingsEvent.ShowToast("Auth token expired"))
+    }
+
+    override fun expireAuthAndRefreshTokensClicked() {
+        expireAuthTokens(expireRefreshToken = true)
+        _events.tryEmit(SettingsEvent.ShowToast("Auth + refresh tokens expired"))
     }
 
     override fun onResetSettingsClicked() {

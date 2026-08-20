@@ -261,6 +261,22 @@
         <item>Staging</item>
     </string-array>
 
+    <!-- renewSSO() Simulation Mode -->
+    <string-array name="renew_sso_mode_entries">
+        <item>Normal</item>
+        <item>Not Implemented</item>
+        <item>Never Answers</item>
+        <item>Renews But Never Reports</item>
+        <item>Answers Without Renewing</item>
+    </string-array>
+    <string-array name="renew_sso_mode_values">
+        <item>Normal</item>
+        <item>NotImplemented</item>
+        <item>NeverAnswers</item>
+        <item>RenewsButNeverReports</item>
+        <item>AnswersWithoutRenewing</item>
+    </string-array>
+
     <!-- Supported Languages -->
     <string-array name="supported_language_entries">
         <item>English</item>

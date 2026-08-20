@@ -14,6 +14,9 @@ sealed class PreferenceKey(val key: String) {
     data object SpotId : PreferenceKey("spotId")
     data object PostId : PreferenceKey("postId")
 
+    // Last successful SSO login, persisted so the headless renew authenticator can replay it.
+    data object LastSsoLogin : PreferenceKey("last_sso_login")
+
     // Root menu navigation
     data object Customizations : PreferenceKey("customizations")
     data object Authentication : PreferenceKey("authentication")
@@ -88,7 +91,9 @@ sealed class PreferenceKey(val key: String) {
 
     // Authentication
     data object ShowLoginPrompt : PreferenceKey("show_login_prompt")
-    data object SkipRenewSSOImplementation : PreferenceKey("skip_renew_sso_implementation")
+    data object RenewSSOMode : PreferenceKey("renew_sso_mode")
+    data object ExpireAuthToken : PreferenceKey("expire_auth_token")
+    data object ExpireAuthAndRefreshTokens : PreferenceKey("expire_auth_and_refresh_tokens")
 
     // Other Settings
     data object CommentCreationStyle : PreferenceKey("comment_creation_style")

@@ -55,6 +55,12 @@ sealed class SharedPrefsItem<T>(val key: String, val defaultValue: T) {
         defaultValue = null
     )
 
+    /** Serialized last successful SSO login, replayed by the headless SSO renew authenticator. */
+    data object LastSsoLogin : SharedPrefsItem<String?>(
+        key = PreferenceKey.LastSsoLogin.key,
+        defaultValue = null
+    )
+
     data object EnableLandScape : SharedPrefsItem<Boolean>(
         key = PreferenceKey.EnableLandscape.key,
         defaultValue = false
@@ -265,11 +271,10 @@ sealed class SharedPrefsItem<T>(val key: String, val defaultValue: T) {
         defaultValue = false
     )
 
-    // When true, the sample-app does NOT register a renewSSO authenticator, so the SDK
-    // has to handle SSO token renewal itself (used to test that SDK code path).
-    data object SkipRenewSSOImplementation : SharedPrefsItem<Boolean>(
-        key = PreferenceKey.SkipRenewSSOImplementation.key,
-        defaultValue = false
+    /** Simulated renewSSO() host behavior, used to exercise the SDK's 403 recovery paths. */
+    data object RenewSSOMode : SharedPrefsItem<openweb.sample.ui.screens.settings.enums.RenewSSOMode>(
+        key = PreferenceKey.RenewSSOMode.key,
+        defaultValue = openweb.sample.ui.screens.settings.enums.RenewSSOMode.Normal
     )
 
     data object ReactionsThemeName : SharedPrefsItem<String>(

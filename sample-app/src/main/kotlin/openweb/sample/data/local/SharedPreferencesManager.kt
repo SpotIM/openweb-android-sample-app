@@ -12,6 +12,7 @@ import openweb.sample.ui.screens.settings.customfont.CustomFontSetting
 import openweb.sample.ui.screens.settings.customtheme.CombinedThemeColorSetting
 import openweb.sample.ui.screens.settings.enums.ArticleInformationStrategy
 import openweb.sample.ui.screens.settings.enums.FontFamilyType
+import openweb.sample.ui.screens.settings.enums.RenewSSOMode
 import openweb.sample.utils.fromJson
 import openweb.sample.utils.fromString
 import openweb.sample.utils.logger.SampleLogger
@@ -255,6 +256,12 @@ class SharedPreferencesManager(context: Context) : SharedPreferencesOperations {
         setValue<OWSpotId>(SharedPrefsItem.SpotId.key, spotId)
     }
 
+    override fun getLastSsoLogin(): String? = getValue<String>(SharedPrefsItem.LastSsoLogin.key)
+
+    override fun setLastSsoLogin(lastSsoLogin: String?) {
+        setValue<String>(SharedPrefsItem.LastSsoLogin.key, lastSsoLogin)
+    }
+
     override fun getSupportSystemDarkMode() = getValue<Boolean>(SharedPrefsItem.SupportSystemDarkMode.key)
         ?: SharedPrefsItem.SupportSystemDarkMode.defaultValue
 
@@ -365,13 +372,12 @@ class SharedPreferencesManager(context: Context) : SharedPreferencesOperations {
         themeName
     )
 
-    override fun getSkipRenewSSOImplementation(): Boolean =
-        getValue<Boolean>(SharedPrefsItem.SkipRenewSSOImplementation.key)
-            ?: SharedPrefsItem.SkipRenewSSOImplementation.defaultValue
+    override fun getRenewSSOMode() = getValue<RenewSSOMode>(SharedPrefsItem.RenewSSOMode.key)
+        ?: SharedPrefsItem.RenewSSOMode.defaultValue
 
-    override fun setSkipRenewSSOImplementation(skip: Boolean) = setValue<Boolean>(
-        SharedPrefsItem.SkipRenewSSOImplementation.key,
-        skip
+    override fun setRenewSSOMode(mode: RenewSSOMode) = setValue<RenewSSOMode>(
+        SharedPrefsItem.RenewSSOMode.key,
+        mode
     )
 
     override fun getConversationNavToolbarStyle(): String =
@@ -463,6 +469,7 @@ class SharedPreferencesManager(context: Context) : SharedPreferencesOperations {
             is SharedPrefsItem.PreConversationStyle -> getPreConversationStyle() as T
             is SharedPrefsItem.ReadOnlyMode -> getReadOnlyMode() as T
             is SharedPrefsItem.SpotId -> getSpotId() as T
+            is SharedPrefsItem.LastSsoLogin -> getLastSsoLogin() as T
             is SharedPrefsItem.SupportSystemDarkMode -> getSupportSystemDarkMode() as T
             is SharedPrefsItem.SupportedLanguage -> getSupportedLanguage() as T
             is SharedPrefsItem.ShowLoginPrompt -> getShowLoginPrompt() as T
@@ -481,7 +488,7 @@ class SharedPreferencesManager(context: Context) : SharedPreferencesOperations {
             is SharedPrefsItem.MockSSOEnvironment -> getMockSSOEnvironment() as T
             is SharedPrefsItem.EnableReactions -> getEnableReactions() as T
             is SharedPrefsItem.ReactionsThemeName -> getReactionsThemeName() as T
-            is SharedPrefsItem.SkipRenewSSOImplementation -> getSkipRenewSSOImplementation() as T
+            is SharedPrefsItem.RenewSSOMode -> getRenewSSOMode() as T
         }
     }
 
@@ -522,6 +529,7 @@ class SharedPreferencesManager(context: Context) : SharedPreferencesOperations {
             is SharedPrefsItem.PreConversationStyle -> setPreConversationStyle(value as PreConversationSettingsModel)
             is SharedPrefsItem.ReadOnlyMode -> setReadOnlyMode(value as OWReadOnlyMode)
             is SharedPrefsItem.SpotId -> setSpotId(value as? OWSpotId)
+            is SharedPrefsItem.LastSsoLogin -> setLastSsoLogin(value as? String)
             is SharedPrefsItem.SupportSystemDarkMode -> setSupportSystemDarkMode(value as Boolean)
             is SharedPrefsItem.SupportedLanguage -> setSupportedLanguage(value as OWSupportedLanguage)
             is SharedPrefsItem.ShowLoginPrompt -> setShowLoginPrompt(value as Boolean)
@@ -540,7 +548,7 @@ class SharedPreferencesManager(context: Context) : SharedPreferencesOperations {
             is SharedPrefsItem.MockSSOEnvironment -> setMockSSOEnvironment(value as OWEnvironment)
             is SharedPrefsItem.EnableReactions -> setEnableReactions(value as Boolean)
             is SharedPrefsItem.ReactionsThemeName -> setReactionsThemeName(value as String)
-            is SharedPrefsItem.SkipRenewSSOImplementation -> setSkipRenewSSOImplementation(value as Boolean)
+            is SharedPrefsItem.RenewSSOMode -> setRenewSSOMode(value as RenewSSOMode)
         }
     }
 

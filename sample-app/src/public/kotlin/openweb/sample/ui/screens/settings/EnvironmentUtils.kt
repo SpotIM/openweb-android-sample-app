@@ -20,3 +20,9 @@ fun clearConfig() = Unit
  * Login delegation management is internal-only.
  */
 fun clearLoginDelegation() = Unit
+
+/**
+ * No-op stub for token expiry simulation in public builds.
+ * Debug token manipulation is internal-only.
+ */
+fun expireAuthTokens(expireRefreshToken: Boolean) = Unit

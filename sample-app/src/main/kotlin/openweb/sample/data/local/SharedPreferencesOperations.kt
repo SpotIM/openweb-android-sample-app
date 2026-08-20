@@ -19,6 +19,7 @@ import openweb.sample.ui.screens.settings.customfont.CustomFontSetting
 import openweb.sample.ui.screens.settings.customtheme.CombinedThemeColorSetting
 import openweb.sample.ui.screens.settings.enums.ArticleInformationStrategy
 import openweb.sample.ui.screens.settings.enums.FontFamilyType
+import openweb.sample.ui.screens.settings.enums.RenewSSOMode
 
 /**
  * Interface for operations related to SharedPreferences.
@@ -105,6 +106,9 @@ interface SharedPreferencesOperations {
     fun setSpotId(spotId: OWSpotId?)
     fun getSpotId(): OWSpotId?
 
+    fun setLastSsoLogin(lastSsoLogin: String?)
+    fun getLastSsoLogin(): String?
+
     fun setSupportSystemDarkMode(support: Boolean)
     fun getSupportSystemDarkMode(): Boolean?
 
@@ -156,6 +160,6 @@ interface SharedPreferencesOperations {
     fun setReactionsThemeName(themeName: String)
     fun getReactionsThemeName(): String
 
-    fun setSkipRenewSSOImplementation(skip: Boolean)
-    fun getSkipRenewSSOImplementation(): Boolean
+    fun setRenewSSOMode(mode: RenewSSOMode)
+    fun getRenewSSOMode(): RenewSSOMode
 }
