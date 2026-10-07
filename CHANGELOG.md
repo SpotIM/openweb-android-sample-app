@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.3.0] - 2026-10-07
+### New Features
+- Polls: Let users create polls in the conversation and vote, with results that update live. Users with permission add a poll from the comment-creation menu, with 2–4 options and single- or multiple-choice voting; readers vote with an interface similar to Reactions and can change or withdraw their vote. Poll creation is controlled by the `disable_poll_button` remote configuration.
+### Bug Fixes
+- Resolved a crash that occurred in Jetpack Compose integrations when posting a comment failed.
+- Fixed an issue where liking or disliking a comment could report an error even though the vote was applied.
+- Fixed an issue where opening a conversation directly to reply to or edit a comment did not open the comment editor on the first navigation.
+- Fixed an issue where replying from the Pre-Conversation with the floating comment creation style opened an empty conversation.
+- Fixed an issue where the Quick Rating could show part of a previous rating after logging in.
+- Fixed an issue where the Reactions widget showed the results state when reopened after a vote was undone.
+### Improvements
+- Added support for language strategy configurations in the Reactions widget.
+
 ## [3.2.1] - 2026-08-20
 ### New Features
 - Reactions: A new poll-style Reactions widget that lets readers react to your content and see results update live. It sits alongside the conversation as a lightweight engagement surface, with server-driven theming and built-in login handling for gated posts.

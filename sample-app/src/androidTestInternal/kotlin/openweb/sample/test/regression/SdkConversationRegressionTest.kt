@@ -12,7 +12,7 @@ import org.junit.Test
  * L6 Regression Gate — SDK Conversation smoke tests.
  *
  * These tests verify that SDK screens load without crashing.
- * Ralph Loop runs these as a gate — it does NOT generate Espresso tests.
+ * Run them on a device or emulator as a pre-release gate.
  *
  * Test config: SpotID = sp_eCIlROSD, PostID = sdk1jkl
  */

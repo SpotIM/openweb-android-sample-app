@@ -28,3 +28,9 @@ __pycache__/
 
 # Local signing secrets (never commit — see keystore.properties.template)
 keystore.properties
+
+# Local /ship pipeline config (see .claude/pipeline.env.example)
+/.claude/pipeline.env
+
+# /ship run ledger — local calibration data, one JSON row per delivered task
+/.claude/ship-runs.jsonl

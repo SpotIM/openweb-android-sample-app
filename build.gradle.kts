@@ -30,10 +30,22 @@ plugins {
 }
 
 // Project version properties
-extra["sample_version_name"] = "3.2.1.2"
-extra["sdk_version_name"] = "3.2.1"
-extra["rn_sdk_version_name"] = "3.2.1"
-extra["build_number"] = 134
+extra["sample_version_name"] = "3.3.0.5"
+extra["sdk_version_name"] = "3.3.0"
+extra["rn_sdk_version_name"] = "3.3.0"
+extra["build_number"] = 140
+
+// Keeps BuildConfig.SPOT_IM_SDK_VERSION in step with the published version. The -SNAPSHOT suffix is
+// deliberately left out: it belongs on the Maven publication only, so the x-sdk-version header stays numeric.
+fun applySdkVersionOverride() {
+    val override = (findProperty("sdkVersionOverride") as String?)
+        ?.takeIf { it.isNotBlank() }
+        ?.removeSuffix("-SNAPSHOT")
+        ?: return
+
+    listOf("sdk_version_name", "rn_sdk_version_name").forEach { key -> extra[key] = override }
+}
+applySdkVersionOverride()
 
 // Signing secrets: keystore.properties (gitignored) first, then findProperty
 // (gradle.properties / ~/.gradle / -P / ORG_GRADLE_PROJECT_*). Absent -> null.
@@ -63,7 +75,7 @@ subprojects {
     apply(plugin = "io.gitlab.arturbosch.detekt")
 
     dependencies {
-        "detektPlugins"("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.7")
+        "detektPlugins"("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.8")
     }
 
     configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
@@ -82,5 +94,15 @@ allprojects {
         mavenLocal()
         google()
         mavenCentral()
+        // Opt-in via -PuseSnapshotSdk so ordinary builds never resolve against it. Scoped to OpenWeb
+        // snapshot coordinates only, so no other dependency pays for the extra lookup.
+        if (providers.gradleProperty("useSnapshotSdk").isPresent) {
+            maven {
+                name = "centralPortalSnapshots"
+                url = uri("https://central.sonatype.com/repository/maven-snapshots/")
+                mavenContent { snapshotsOnly() }
+                content { includeGroupByRegex("io\\.github\\.spotim.*") }
+            }
+        }
     }
 }
