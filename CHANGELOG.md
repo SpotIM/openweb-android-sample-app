@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.3.1] - 2026-11-23
+### Customer-Specific Fixes
+- [The Times] Resolved a crash that occurred when opening a conversation in apps built with R8 code shrinking enabled.
+- [Football Co] Fixed an issue where SSO login could fail when the app logged the user out, or the session was renewed, while the login was in progress.
+
 ## [3.3.0] - 2026-10-07
 ### New Features
 - Polls: Let users create polls in the conversation and vote, with results that update live. Users with permission add a poll from the comment-creation menu, with 2–4 options and single- or multiple-choice voting; readers vote with an interface similar to Reactions and can change or withdraw their vote. Poll creation is controlled by the `disable_poll_button` remote configuration.

@@ -30,10 +30,10 @@ plugins {
 }
 
 // Project version properties
-extra["sample_version_name"] = "3.3.0.5"
-extra["sdk_version_name"] = "3.3.0"
-extra["rn_sdk_version_name"] = "3.3.0"
-extra["build_number"] = 140
+extra["sample_version_name"] = "3.3.1.1"
+extra["sdk_version_name"] = "3.3.1"
+extra["rn_sdk_version_name"] = "3.3.1"
+extra["build_number"] = 141
 
 // Keeps BuildConfig.SPOT_IM_SDK_VERSION in step with the published version. The -SNAPSHOT suffix is
 // deliberately left out: it belongs on the Maven publication only, so the x-sdk-version header stays numeric.
